@@ -1,0 +1,24 @@
+import React, { Component } from 'react'
+
+class EqDetail extends Component {
+
+  constructor(props, context) {
+    super(props, context)
+    this.state = {
+      id: 0,
+      text: 'Stuff',
+      done: false
+    }
+  }
+
+  render() {
+    return (
+      <div>
+        <div>EqDetail</div>
+      </div>
+    )
+  }
+
+}
+
+export default EqDetail
