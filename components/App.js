@@ -27,7 +27,7 @@ import UserProfile from './users/UserProfile'
 import HeaderBar from './HeaderBar'
 import Modules from './Modules'
 import Selectors from './Selectors'
-import SideBar from './SideBar'
+import SideMenu from './SideMenu'
 
 
 class App extends Component {
@@ -40,7 +40,7 @@ class App extends Component {
         <HeaderUserMenu />
         <HeaderSettingsMenu />
         <div>-------------</div>
-        <SideBar />
+        <SideMenu />
         <Selectors />
         <Find />
         <Filter />

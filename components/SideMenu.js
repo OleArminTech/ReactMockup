@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class SideBar extends Component {
+class SideMenu extends Component {
 
   constructor(props, context) {
     super(props, context)
@@ -14,11 +14,11 @@ class SideBar extends Component {
   render() {
     return (
       <div>
-        <div>SideBar</div>
+        <div>SideMenu</div>
       </div>
     )
   }
 
 }
 
-export default SideBar
+export default SideMenu
