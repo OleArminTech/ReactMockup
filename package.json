@@ -22,9 +22,9 @@
     "webpack-hot-middleware": "^2.6.4"
   },
   "scripts": {
+    "start": "nodemon server/Server.js --ignore components",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "serve": "nodemon server/Server.js --ignore components"
+    "test": "react-scripts test --env=jsdom"
   },
   "devDependencies": {
     "nodemon": "^1.17.2"
