@@ -9,10 +9,12 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-react-hmre": "^1.1.1",
     "express": "^4.16.3",
+    "npm": "^5.8.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",
+    "react-router-redux": "^4.0.8",
     "react-scripts": "1.1.1",
     "redux": "^3.7.2",
     "redux-logger": "^3.0.6",
@@ -27,6 +29,7 @@
     "test": "react-scripts test --env=jsdom"
   },
   "devDependencies": {
+    "babel-preset-stage-2": "^6.24.1",
     "nodemon": "^1.17.2"
   }
 }
