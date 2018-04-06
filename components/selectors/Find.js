@@ -14,7 +14,7 @@ class Find extends Component {
   render() {
     return (
       <div>
-        <div>Find</div>
+        
       </div>
     )
   }

@@ -3,6 +3,6 @@ import SelectorReducer from './SelectorReducer'
 import ModulesReducer from './ModulesReducer'
 
 export default combineReducers({
-  SelectorReducer,
-  ModulesReducer
+  textTest: ModulesReducer,
+  itemTest: SelectorReducer
 })

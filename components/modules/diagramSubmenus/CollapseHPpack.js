@@ -14,7 +14,7 @@ class CollapseHPpack extends Component {
   render() {
     return (
       <div>
-        <div>CollapseHPpack</div>
+        
       </div>
     )
   }

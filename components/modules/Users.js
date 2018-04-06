@@ -14,7 +14,7 @@ class Users extends Component {
   render() {
     return (
       <div>
-        <div>Users</div>
+        
       </div>
     )
   }

@@ -14,7 +14,7 @@ class AddConnection extends Component {
   render() {
     return (
       <div>
-        <div>AddConnection</div>
+        
       </div>
     )
   }

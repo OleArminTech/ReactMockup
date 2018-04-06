@@ -14,7 +14,7 @@ class Offset extends Component {
   render() {
     return (
       <div>
-        <div>Offset</div>
+        
       </div>
     )
   }

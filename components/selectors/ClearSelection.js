@@ -14,7 +14,7 @@ class ClearSelection extends Component {
   render() {
     return (
       <div>
-        <div>ClearSelection</div>
+        
       </div>
     )
   }

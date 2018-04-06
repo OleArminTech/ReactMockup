@@ -1,16 +1,11 @@
-let modulesReducer = function(state = {}, action) {
+let modulesReducer = function(textTest = {}, action) {
   switch (action.type) {
-    case 'TEST':
-      return Object.assign({}, state, {
-        test: {
-          text: action.text,
-          id: 0,
-          done: action.done
-        }
-      })
+    case 'UPDATETEXT':
+      console.log("Reducer: " + action.text)
+      return {...textTest, text: action.text }
 
     default:
-      return state;
+      return textTest;
   }
 }
 

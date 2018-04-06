@@ -14,7 +14,7 @@ class Selectors extends Component {
   render() {
     return (
       <div>
-        <div>Selectors</div>
+        
       </div>
     )
   }

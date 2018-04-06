@@ -14,7 +14,7 @@ class DiagramSubmenu extends Component {
   render() {
     return (
       <div>
-        <div>DiagramSubmenu</div>
+        
       </div>
     )
   }

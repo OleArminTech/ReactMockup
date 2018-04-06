@@ -1,10 +1,16 @@
 let actions = {
-  testAction: function(id) {
+  updateText: function(text) {
+    console.log("Action: " + text)
     return {
-      type: 'TEST',
-      id: id,
-      text: "React and redux did it's magic!",
-      done: true
+      type: 'UPDATETEXT',
+      text: text
+    }
+  },
+
+  addItem: function(text) {
+    return{
+      type: 'ADDITEM',
+      text: text
     }
   }
 }

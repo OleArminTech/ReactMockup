@@ -1,13 +1,13 @@
 import { applyMiddleware, compose, createStore } from 'redux'
-import reducers from './Reducers'
 import logger from 'redux-logger'
 import thunk from 'redux-thunk'
+import rootReducer from './RootReducer'
 
 let finalCreateStore = compose(
   applyMiddleware(thunk, logger)
 )(createStore)
 
 
-export default function configureStore(initialState = null) {
-  return finalCreateStore(reducers, initialState)
+export default function configureStore(initialState = {textTest: {}, itemTest: []}) {
+  return finalCreateStore(rootReducer, initialState)
 }

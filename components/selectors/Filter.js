@@ -14,7 +14,7 @@ class Filter extends Component {
   render() {
     return (
       <div>
-        <div>Filter</div>
+        
       </div>
     )
   }

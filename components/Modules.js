@@ -14,7 +14,7 @@ class Modules extends Component {
   render() {
     return (
       <div>
-        <div>Modules</div>
+        
       </div>
     )
   }

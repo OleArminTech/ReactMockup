@@ -14,7 +14,7 @@ class Datahandler extends Component {
   render() {
     return (
       <div>
-        <div>Datahandler</div>
+        
       </div>
     )
   }

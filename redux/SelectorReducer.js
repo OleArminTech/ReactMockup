@@ -1,16 +1,19 @@
-let selectorReducer = function(state = {}, action) {
+function getId(items) {
+  return items.reduce((maxId, item) => {
+    return Math.max(item.id, maxId)
+  }, -1) + 1
+}
+
+let selectorReducer = function(itemTest = [], action) {
   switch (action.type) {
-    case 'TEST':
-      return Object.assign({}, state, {
-        test: {
-          text: action.text,
-          id: 0,
-          done: action.done
-        }
-      })
+    case 'ADDITEM':
+      return [{
+        id: getId(itemTest),
+        text: action.text
+      }, ...itemTest]
 
     default:
-      return state;
+      return itemTest;
   }
 }
 

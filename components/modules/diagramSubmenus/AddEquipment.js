@@ -14,7 +14,7 @@ class AddEquipment extends Component {
   render() {
     return (
       <div>
-        <div>AddEquipment</div>
+        
       </div>
     )
   }

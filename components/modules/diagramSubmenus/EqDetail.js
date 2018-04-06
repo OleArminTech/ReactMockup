@@ -14,7 +14,7 @@ class EqDetail extends Component {
   render() {
     return (
       <div>
-        <div>EqDetail</div>
+        
       </div>
     )
   }

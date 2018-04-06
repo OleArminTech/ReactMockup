@@ -14,7 +14,7 @@ class SideMenu extends Component {
   render() {
     return (
       <div>
-        <div>SideMenu</div>
+        
       </div>
     )
   }

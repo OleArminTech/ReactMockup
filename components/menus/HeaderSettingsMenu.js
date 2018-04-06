@@ -1,24 +1,25 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 
 class HeaderSettingsMenu extends Component {
-
-  constructor(props, context) {
-    super(props, context)
-    this.state = {
-      id: 0,
-      text: 'Stuff',
-      done: false
-    }
-  }
 
   render() {
     return (
       <div>
-        <div>HeaderSettingsMenu</div>
+        <br/>
+        <ul>
+          {
+            this.props.textTest.text && <li>{this.props.textTest.text}</li>
+          }
+          {
+          this.props.itemTest.map((item) => {
+            console.log("Items: " + item.text)
+            return item.text && <li key={item.id}>{item.text}</li>
+          })
+          }
+        </ul>
       </div>
     )
   }
-
 }
 
 export default HeaderSettingsMenu

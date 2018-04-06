@@ -14,7 +14,7 @@ class ShowHPpack extends Component {
   render() {
     return (
       <div>
-        <div>ShowHPpack</div>
+        
       </div>
     )
   }

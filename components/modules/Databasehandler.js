@@ -14,7 +14,7 @@ class Databasehandler extends Component {
   render() {
     return (
       <div>
-        <div>Databasehandler</div>
+        
       </div>
     )
   }

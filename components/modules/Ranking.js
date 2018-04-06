@@ -14,7 +14,7 @@ class Ranking extends Component {
   render() {
     return (
       <div>
-        <div>Ranking</div>
+        
       </div>
     )
   }

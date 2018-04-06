@@ -14,7 +14,7 @@ class Instructions extends Component {
   render() {
     return (
       <div>
-        <div>Instructions</div>
+        
       </div>
     )
   }

@@ -14,7 +14,7 @@ class WorkOrder extends Component {
   render() {
     return (
       <div>
-        <div>WorkOrder</div>
+        
       </div>
     )
   }

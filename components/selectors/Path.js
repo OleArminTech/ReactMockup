@@ -14,7 +14,7 @@ class Path extends Component {
   render() {
     return (
       <div>
-        <div>Path</div>
+        
       </div>
     )
   }
