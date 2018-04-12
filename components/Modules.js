@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import '../styles/modules.css'
 
 class Modules extends Component {
 
@@ -14,7 +15,7 @@ class Modules extends Component {
   render() {
     return (
       <div>
-        
+        Modules
       </div>
     )
   }

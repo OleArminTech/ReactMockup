@@ -1,0 +1,31 @@
+.headerBar {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  background-color: #A0A0A0;
+}
+
+.headerBarLeft {
+  align-items: flex-start;
+  display: inline-flex;
+  padding: 10px;
+  margin-right: auto;
+}
+
+.headerBarLeft div {
+  margin: 0;
+  padding: 10px;
+}
+
+.headerBarRight {
+  padding: 10px;
+  margin-left: auto;
+  align-items: flex-end;
+  display: inline-flex;
+}
+
+.headerBarRight li {
+  display: inline-block;
+  list-style-type: none;
+  padding: 10px;
+}

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import '../styles/sideMenu.css'
 
 class SideMenu extends Component {
 
@@ -14,7 +15,7 @@ class SideMenu extends Component {
   render() {
     return (
       <div>
-        
+        Sidemenu
       </div>
     )
   }
