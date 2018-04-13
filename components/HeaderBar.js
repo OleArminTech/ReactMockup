@@ -3,16 +3,16 @@ import { NavLink } from 'react-router-dom'
 import HeaderSettingsMenu from './menus/HeaderSettingsMenu'
 import HeaderUserMenu from './menus/HeaderUserMenu'
 import '../styles/headerBar.css'
+import arminIcon from '../res/ArminIcon.png'
 
 class HeaderBar extends Component {
 
   render() {
-    console.log("Bar: " + this.props.textTest)
     return (
       <div className="headerBar">
         <section className="headerBarLeft">
-          <div>Logo</div>
-          <div>Title</div>
+          <NavLink to="/"><img src={arminIcon} /></NavLink>
+          <div>Title {this.props.workOrder.text && <span>({this.props.workOrder.text})</span>}</div>
         </section>
         <section className="headerBarRight">
           <li><HeaderUserMenu /></li>

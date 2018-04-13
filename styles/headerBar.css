@@ -8,24 +8,38 @@
 .headerBarLeft {
   align-items: flex-start;
   display: inline-flex;
-  padding: 10px;
   margin-right: auto;
+  padding-left: 10px;
+}
+
+.headerBarLeft a img {
+  width: 24px;
+  padding: 16px 24px;
 }
 
 .headerBarLeft div {
-  margin: 0;
-  padding: 10px;
+  margin-left: 8px;
+  padding: 16px 0;
+  font-size: 1.3rem;
+  font-weight: 500;
 }
 
 .headerBarRight {
-  padding: 10px;
   margin-left: auto;
   align-items: flex-end;
   display: inline-flex;
+  padding-right: 10px;
 }
 
 .headerBarRight li {
   display: inline-block;
   list-style-type: none;
-  padding: 10px;
+  padding: 16px 0;
+  margin: 0 10px;
+}
+
+.headerBarRight li span {
+  font-size: 1.3rem;
+  font-weight: 500;
+
 }

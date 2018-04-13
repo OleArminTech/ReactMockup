@@ -1,11 +1,10 @@
-let modulesReducer = function(textTest = {}, action) {
+let modulesReducer = function(workOrder = {}, action) {
   switch (action.type) {
-    case 'UPDATETEXT':
-      console.log("Reducer: " + action.text)
-      return {...textTest, text: action.text }
+    case 'ENTER_WORKORDER':
+      return {...workOrder, text: action.text }
 
     default:
-      return textTest;
+      return workOrder;
   }
 }
 

@@ -4,9 +4,7 @@ class HeaderUserMenu extends Component {
 
   render() {
     return (
-      <div>
-        User
-      </div>
+      <span>User</span>
     )
   }
 

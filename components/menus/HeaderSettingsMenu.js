@@ -4,9 +4,7 @@ class HeaderSettingsMenu extends Component {
 
   render() {
     return (
-      <div>
-        Settings
-      </div>
+      <span>Settings</span>
     )
   }
 }

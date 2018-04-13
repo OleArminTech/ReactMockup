@@ -14,7 +14,7 @@ class HistoryModule extends Component {
   render() {
     return (
       <div>
-        
+        History
       </div>
     )
   }

@@ -14,7 +14,7 @@ class Diagram extends Component {
   render() {
     return (
       <div>
-        
+        Diagram
       </div>
     )
   }

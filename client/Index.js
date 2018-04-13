@@ -8,7 +8,7 @@ import { Provider } from 'react-redux'
 import { BrowserRouter as Router, NavLink, Route, Switch } from 'react-router-dom'
 
 let initialState = {
-  textTest: {
+  workOrder: {
     text: ''
   },
   itemTest: [{
@@ -23,7 +23,7 @@ render(
   <Provider store={store}>
     <Router>
       <Switch>
-        <Route exact path="/" component={App} />
+        <Route path="/" component={App} />
         <Route path="/settings" component={HeaderSettingsMenu} />
         <Route path="/modules" component={Modules} />
       </Switch>

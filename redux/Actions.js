@@ -1,8 +1,7 @@
 let actions = {
-  updateText: function(text) {
-    console.log("Action: " + text)
+  enterWorkOrder: function(text) {
     return {
-      type: 'UPDATETEXT',
+      type: 'ENTER_WORKORDER',
       text: text
     }
   },

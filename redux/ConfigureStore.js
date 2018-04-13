@@ -8,6 +8,6 @@ let finalCreateStore = compose(
 )(createStore)
 
 
-export default function configureStore(initialState = {textTest: {}, itemTest: []}) {
+export default function configureStore(initialState = {workOrder: {}, itemTest: []}) {
   return finalCreateStore(rootReducer, initialState)
 }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class Instructions extends Component {
+class Selectors extends Component {
 
   constructor(props, context) {
     super(props, context)
@@ -14,11 +14,11 @@ class Instructions extends Component {
   render() {
     return (
       <div>
-        Instructions
+
       </div>
     )
   }
 
 }
 
-export default Instructions
+export default Selectors
