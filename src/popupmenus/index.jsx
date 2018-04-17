@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class AddEquipment extends Component {
+class PopupMenu extends Component {
 
   constructor(props, context) {
     super(props, context)
@@ -14,11 +14,11 @@ class AddEquipment extends Component {
   render() {
     return (
       <div>
-        
+        Popup menu
       </div>
     )
   }
 
 }
 
-export default AddEquipment
+export default PopupMenu

@@ -25,3 +25,9 @@ html, body {
   display: flex;
   flex-flow: row nowrap;
 }
+
+.modules {
+  padding: 0;
+  background-color: #E5FFCC;
+  flex: 1;
+}

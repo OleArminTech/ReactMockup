@@ -9,6 +9,11 @@ State architecture:
 Figure out a good architecture for states. What values should go where,
 what states do we need, what info should be stored?
 
+Selectors:
+Look at selectors (between reducers and React components). Easily testable,
+same code to access the same data from different modules, cleaner code,
+easier for others to understand the code.
+
 
 
 React:
@@ -42,3 +47,11 @@ Start implementing errorhandling from the beginning. Will be useful further on.
 
 Testing:
 Check if testing needs to be implemented early, or if this can be done later.
+
+
+Architecture:
+Improve folder structure:
+The folder-structure isn't very scalable. Improve it asap so it's clear when we
+start building the application.
+Make parents smart and children dumb. Right now there's almost no children,
+this is a bad habit. Make a folder structure for handling of parent/children better.

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class Selectors extends Component {
+class ErrorPage extends Component {
 
   constructor(props, context) {
     super(props, context)
@@ -14,11 +14,11 @@ class Selectors extends Component {
   render() {
     return (
       <div>
-        
+        Error page
       </div>
     )
   }
 
 }
 
-export default Selectors
+export default ErrorPage

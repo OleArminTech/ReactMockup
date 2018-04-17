@@ -1,12 +1,9 @@
 import React from 'react'
 import { render } from 'react-dom'
-import App from '../components/App'
-import HeaderSettingsMenu from '../components/menus/HeaderSettingsMenu'
-import Modules from '../components/Modules'
-
-import configureStore from '../redux/configureStore'
-import { Provider } from 'react-redux'
 import { BrowserRouter as Router, NavLink, Route, Switch } from 'react-router-dom'
+import { Provider } from 'react-redux'
+import App from '../src/app.jsx'
+import configureStore from '../redux/configureStore'
 
 let initialState = {
   workOrder: {

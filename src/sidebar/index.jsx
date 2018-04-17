@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
-import '../styles/sideMenu.css'
-import arminIcon from '../res/ArminIcon.png'
-import DiagramSubmenu from './modules/diagramSubmenus/DiagramSubmenu'
+import arminIcon from '../../res/img/ArminIcon.png'
+import '../../styles/sideBar.css'
 
-class SideMenu extends Component {
+class SideBar extends Component {
 
   constructor(props, context) {
     super(props, context)
@@ -17,7 +16,7 @@ class SideMenu extends Component {
 
   render() {
     return (
-      <div className="sideMenu">
+      <div className="sideBar">
         <section className="selectorsGroup">
           <NavLink to="/"><img src={arminIcon} /><span>Find</span></NavLink>
           <NavLink to="/"><img src={arminIcon} /><span>Filter</span></NavLink>
@@ -38,7 +37,7 @@ class SideMenu extends Component {
         </section>
         <hr />
         <section className="diagramSubmenuGroup">
-          <DiagramSubmenu />
+          {/* SUBMENUS HERE */}
         </section>
       </div>
     )
@@ -46,4 +45,4 @@ class SideMenu extends Component {
 
 }
 
-export default SideMenu
+export default SideBar
