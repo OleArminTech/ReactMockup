@@ -38,5 +38,8 @@ module.exports = {
         exclude: /node_modules/
       }
     ]
+  },
+  resolve: {
+    extensions: ['.js', '.jsx'],
   }
 }
