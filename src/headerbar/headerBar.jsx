@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
-import HeaderSettingsMenu from './containers/HeaderSettingsMenu'
-import HeaderUserMenu from './containers/HeaderUserMenu'
+import HeaderSettingsMenu from './containers/headerSettingsMenu'
+import HeaderUserMenu from './containers/headerUserMenu'
 import '../../styles/headerBar.css'
 import arminIcon from '../../res/img/ArminIcon.png'
 
