@@ -9,12 +9,13 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-react-hmre": "^1.1.1",
     "express": "^4.16.3",
+    "history": "^4.7.2",
     "npm": "^5.8.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",
-    "react-router-redux": "^4.0.8",
+    "react-router-redux": "^5.0.0-alpha.9",
     "react-scripts": "1.1.1",
     "redux": "^3.7.2",
     "redux-logger": "^3.0.6",
@@ -24,12 +25,14 @@
     "webpack-hot-middleware": "^2.6.4"
   },
   "scripts": {
-    "start": "nodemon server/Server.js --ignore components",
+    "start": "nodemon server/server.js --ignore components",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom"
   },
   "devDependencies": {
     "babel-preset-stage-2": "^6.24.1",
-    "nodemon": "^1.17.2"
+    "css-loader": "^0.28.11",
+    "nodemon": "^1.17.2",
+    "style-loader": "^0.20.3"
   }
 }

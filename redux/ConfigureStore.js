@@ -1,13 +1,34 @@
 import { applyMiddleware, compose, createStore } from 'redux'
-import reducers from './Reducers'
 import logger from 'redux-logger'
 import thunk from 'redux-thunk'
+import rootReducer from './reducers/rootReducer'
 
-let finalCreateStore = compose(
-  applyMiddleware(thunk, logger)
-)(createStore)
-
-
-export default function configureStore(initialState = null) {
-  return finalCreateStore(reducers, initialState)
+function saveToLocalStorage(state){
+  try{
+    const serializedState = JSON.stringify(state)
+    localStorage.setItem('state', serializedState)
+  } catch(e) {
+    console.log(e)
+  }
 }
+
+function loadFromLocalStorage() {
+  try{
+    const serializedState = localStorage.getItem('state')
+    if(serializedState === null) return undefined
+    return JSON.parse(serializedState)
+  } catch(e) {
+    console.log(e)
+    return undefined
+  }
+}
+
+let store = createStore(
+  rootReducer,
+  loadFromLocalStorage(),
+  compose(applyMiddleware(thunk, logger))
+)
+
+store.subscribe(() => saveToLocalStorage(store.getState()))
+
+export default store

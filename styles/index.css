@@ -1,0 +1,33 @@
+html, body {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  font-family: Arial;
+}
+
+#root {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+  height: 100%;
+}
+
+.content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.modules {
+  padding: 0;
+  background-color: #E5FFCC;
+  flex: 1;
+}

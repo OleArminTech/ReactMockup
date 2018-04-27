@@ -5,7 +5,7 @@ module.exports = {
   devtool: 'inline-source-map',
   entry: [
     'webpack-hot-middleware/client',
-    './client/Index.js'
+    './public/index.jsx'
   ],
   output: {
     path: path.join(__dirname, 'dist'),
@@ -20,13 +20,26 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         loader: 'babel-loader',
         exclude: /node_modules/,
         query: {
           presets: ['react', 'es2015', 'react-hmre', 'stage-2']
         }
+      },
+      {
+        test: /\.css$/,
+        loader: ['style-loader', 'css-loader'],
+        exclude: /node_modules/
+      },
+      {
+        test: /\.(?:png|jpg|svg)$/,
+        loader: 'url-loader',
+        exclude: /node_modules/
       }
     ]
+  },
+  resolve: {
+    extensions: ['.js', '.jsx'],
   }
 }
