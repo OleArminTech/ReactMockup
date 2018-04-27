@@ -4,6 +4,7 @@ Redux:
 State architecture:
 Figure out a good architecture for states. What values should go where,
 what states do we need, what info should be stored?
+Group the states into keys. UI needs a state, app prefs needs a state, and so on.
 
 
 
