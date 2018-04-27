@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class HistoryModule extends Component {
+class HistoryContainer extends Component {
 
   constructor(props, context) {
     super(props, context)
@@ -21,4 +21,4 @@ class HistoryModule extends Component {
 
 }
 
-export default HistoryModule
+export default HistoryContainer

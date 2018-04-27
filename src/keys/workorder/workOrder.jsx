@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import actions from '../../redux/actions/actions'
+import actions from '../../../redux/actions/actions'
 
 class WorkOrder extends Component {
 
@@ -24,7 +24,7 @@ class WorkOrder extends Component {
 
   render() {
     return (
-      <div>
+      <div className="workorder">
         <form onSubmit={this.mySubmitHandler.bind(this)}>
           <input
             type="text"

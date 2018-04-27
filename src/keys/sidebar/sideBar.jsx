@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
-import arminIcon from '../../res/img/ArminIcon.png'
-import '../../styles/sideBar.css'
+import arminIcon from '../../../res/img/ArminIcon.png'
+import '../../../styles/sideBar.css'
 
 class SideBar extends Component {
 

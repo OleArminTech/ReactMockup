@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
 import HeaderSettingsMenu from './containers/headerSettingsMenu'
 import HeaderUserMenu from './containers/headerUserMenu'
-import '../../styles/headerBar.css'
-import arminIcon from '../../res/img/ArminIcon.png'
+import '../../../styles/headerBar.css'
+import arminIcon from '../../../res/img/ArminIcon.png'
 
 class HeaderBar extends Component {
 

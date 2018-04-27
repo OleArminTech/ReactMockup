@@ -3,13 +3,11 @@ import { withRouter, Route, Switch } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import actions from '../redux/actions/actions'
-import HeaderBar from './headerbar/headerBar'
-import SideBar from './sidebar/sideBar'
-import Diagram from './diagram/diagram'
-import Ranking from './ranking/ranking'
-import HistoryModule from './history/historyModule'
-import Instructions from './instructions/instructions'
-import WorkOrder from './workorder/workOrder'
+import HeaderBar from './keys/headerbar/headerBar'
+import SideBar from './keys/sidebar/sideBar'
+import Diagram from './keys/diagram/diagram'
+import DisplayData from './keys/displaydata/displayData'
+import WorkOrder from './keys/workorder/workOrder'
 import PageNotFound from './errorpages/pageNotFound'
 import '../styles/index.css'
 
@@ -25,9 +23,9 @@ class App extends Component {
             <Switch>
               <Route exact path="/" component={WorkOrder} />
               <Route path="/diagram" component={Diagram} />
-              <Route path="/ranking" component={Ranking} />
-              <Route path="/history" component={HistoryModule} />
-              <Route path="/instructions" component={Instructions} />
+              <Route path="/ranking" component={DisplayData} />
+              <Route path="/history" component={DisplayData} />
+              <Route path="/instructions" component={DisplayData} />
               <Route path="/workorder" component={WorkOrder} />
               <Route component={PageNotFound} />
             </Switch>
