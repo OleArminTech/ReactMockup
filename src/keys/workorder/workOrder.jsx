@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import actions from '../../../redux/actions/actions'
+import * as actions from '../../../redux/actions/actions'
 
 class WorkOrder extends Component {
 

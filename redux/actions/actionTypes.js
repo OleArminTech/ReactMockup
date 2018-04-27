@@ -1,0 +1,3 @@
+export default ENTER_WORKORDER = 'ENTER_WORKORDER'
+
+export default GENERIC_ACTION = 'GENERIC_ACTION'
