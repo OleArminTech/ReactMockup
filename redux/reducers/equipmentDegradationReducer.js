@@ -1,13 +1,13 @@
 import { GENERIC_ACTION } from '../actions/actionTypes'
 
-let equipmentDegredationReducer = function(equipmentDegredation = {}, action) {
+let equipmentDegradationReducer = function(equipmentDegradation = {}, action) {
   switch (action.type) {
     case GENERIC_ACTION:
-      return {...equipmentDegredation, text: action.text }
+      return {...equipmentDegradation, text: action.text }
 
     default:
-      return equipmentDegredation;
+      return equipmentDegradation;
   }
 }
 
-export default equipmentDegredationReducer
+export default equipmentDegradationReducer
