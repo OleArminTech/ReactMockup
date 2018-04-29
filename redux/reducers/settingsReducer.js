@@ -1,6 +1,8 @@
 import { GENERIC_ACTION } from '../actions/actionTypes'
 
-let settingsReducer = function(settings = {}, action) {
+let settingsReducer = function(settings = {
+    text: ""
+  }, action) {
   switch (action.type) {
     case GENERIC_ACTION:
       return {...settings, text: action.text }

@@ -1,9 +1,13 @@
 import { GENERIC_ACTION } from '../actions/actionTypes'
 
-let datasetsReducer = function(datasets = {}, action) {
+let datasetsReducer = function(datasets = {
+    datasetID: 0,
+    datasetFile: "",
+    datasetName: ""
+  }, action) {
   switch (action.type) {
     case GENERIC_ACTION:
-      return {...datasets, text: action.text }
+      return {...datasets, datasetName: action.text }
 
     default:
       return datasets;

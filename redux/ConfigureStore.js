@@ -7,7 +7,8 @@ function saveToLocalStorage(state){
   let persistantStates = {
     workOrder: state.workOrder,
     userInterface: state.userInterface,
-    settings: state.settings }
+    settings: state.settings
+   }
   try{
     const serializedState = JSON.stringify(persistantStates)
     localStorage.setItem('state', serializedState)

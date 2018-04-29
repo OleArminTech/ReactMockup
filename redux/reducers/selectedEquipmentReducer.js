@@ -1,10 +1,12 @@
 import { GENERIC_ACTION } from '../actions/actionTypes'
 
-let selectedEquipmentReducer = function(selectedEquipment = {}, action) {
+let selectedEquipmentReducer = function(selectedEquipment = {
+    equipment: {},
+    numberOfSelected: 0
+  }, action) {
   switch (action.type) {
     case GENERIC_ACTION:
-      return {...selectedEquipment, text: action.text }
-
+      return {...selectedEquipment, numberOfSelected: action.text }
     default:
       return selectedEquipment;
   }

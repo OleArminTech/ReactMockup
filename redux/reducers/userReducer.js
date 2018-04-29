@@ -1,9 +1,14 @@
 import { GENERIC_ACTION } from '../actions/actionTypes'
 
-let userReducer = function(user = {}, action) {
+let userReducer = function(user = {
+    userID: 0,
+    username: "",
+    password: "",
+    customers: {}
+  }, action) {
   switch (action.type) {
     case GENERIC_ACTION:
-      return {...user, text: action.text }
+      return {...user, name: action.text }
 
     default:
       return user;

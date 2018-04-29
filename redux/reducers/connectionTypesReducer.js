@@ -1,9 +1,18 @@
 import { GENERIC_ACTION } from '../actions/actionTypes'
 
-let connectionTypesReducer = function(connectionTypes = {}, action) {
+let connectionTypesReducer = function(connectionTypes = {
+    entities: {
+      0: {
+        connectiontypeID: 0,
+        connectiontype: "",
+        color: ""
+      }
+    },
+    IDs: {}
+  }, action) {
   switch (action.type) {
     case GENERIC_ACTION:
-      return {...connectionTypes, text: action.text }
+      return {...connectionTypes, color: action.text }
 
     default:
       return connectionTypes;
