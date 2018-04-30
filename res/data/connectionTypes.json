@@ -1,0 +1,37 @@
+{
+  "entities": {
+    "1": {
+      "connectionTypeID": 1,
+      "connectionType": "SILAGE",
+      "color": "966400"
+    },
+    "2": {
+      "connectionTypeID": 2,
+      "connectionType": "MECHNICAL",
+      "color": "000000"
+    },
+    "3": {
+      "connectionTypeID": 3,
+      "connectionType": "RAWGAS",
+      "color": "00C800"
+    },
+    "4": {
+      "connectionTypeID": 4,
+      "connectionType": "HEATING",
+      "color": "C80000"
+    },
+    "5": {
+      "connectionTypeID": 5,
+      "connectionType": "ELECTRICAL",
+      "color": "FFFF00"
+    },
+    "6": {
+      "connectionTypeID": 6,
+      "connectionType": "SIGNAL",
+      "color": "0000C8"
+    }
+  },
+  "IDs": [
+    1, 2, 3, 4, 5, 6
+  ]
+}

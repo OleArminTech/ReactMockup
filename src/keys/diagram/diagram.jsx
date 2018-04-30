@@ -1,50 +1,45 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { withRouter } from 'react-router-dom'
-import { bindActionCreators } from 'redux'
-import actions from '../../../redux/actions/actions'
+import _ from 'lodash'
+import equipment from '../../../res/data/equipment.json'
+import connections from '../../../res/data/connections.json'
+import connectionTypes from '../../../res/data/connectionTypes.json'
 
 class Diagram extends Component {
 
   constructor(props, context) {
     super(props, context)
-    this.state = {
-      id: 0,
-      text: 'Stuff',
-      done: false
-    }
+    this.state = { text: "" }
   }
 
-  showEquipmentID(){
-    let equip = {}
-    let equipID = ""
-    equip = this.props.equipment.entities[0]
-    Object.keys(equip).forEach(key => {
-    if(key === "equipmentID"){
-      equipID = key + ": " + equip[key]
-    }
-    })
-    return equipID
+  componentDidMount(){
+    this.setState({ equipment: equipment, connections: connections, connectionTypes: connectionTypes })
   }
+
 
   render() {
     return (
       <div>
-        <div>Diagram</div>
-        <div>{ this.showEquipmentID() }</div>
+        <h1>Diagram</h1>
+        <div>
+          { this.state.equipment && _.map(this.state.equipment.IDs, key => {
+            return "" + key + ", "
+            })}
+        </div>
+        <br />
+        <div>
+          { this.state.connections && _.map(this.state.connections.IDs, key => {
+            return "" + key + ", "
+            })}
+        </div>
+        <br />
+        <div>
+          { this.state.connectionTypes && _.map(this.state.connectionTypes.IDs, key => {
+            return "" + key + ", "
+            })}
+        </div>
       </div>
     )
   }
 }
 
-function mapStateToProps(state) {
-  return state
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    actions: bindActionCreators(actions, dispatch)
-  }
-}
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Diagram))
+export default Diagram
