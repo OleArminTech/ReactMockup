@@ -6,7 +6,7 @@ class Ranking extends Component {
     super(props, context)
     this.state = {
       id: 0,
-      text: 'Stuff',
+      text: '',
       done: false
     }
   }
@@ -18,7 +18,6 @@ class Ranking extends Component {
       </div>
     )
   }
-
 }
 
 export default Ranking

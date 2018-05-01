@@ -12,7 +12,7 @@ class HeaderBar extends Component {
       <div className="headerBar">
         <section className="headerBarLeft">
           <NavLink to="/"><img src={arminIcon} /></NavLink>
-          <div>Title {this.props.workOrder.text && <span>({this.props.workOrder.text})</span>}</div>
+          <div>Title {this.props.workOrder.workOrderName && <span>({this.props.workOrder.workOrderName})</span>}</div>
         </section>
         <section className="headerBarRight">
           <li><HeaderUserMenu /></li>

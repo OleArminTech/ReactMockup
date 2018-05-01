@@ -4,8 +4,13 @@ import thunk from 'redux-thunk'
 import rootReducer from './reducers/rootReducer'
 
 function saveToLocalStorage(state){
+  let persistantStates = {
+    workOrder: state.workOrder,
+    userInterface: state.userInterface,
+    settings: state.settings
+   }
   try{
-    const serializedState = JSON.stringify(state)
+    const serializedState = JSON.stringify(persistantStates)
     localStorage.setItem('state', serializedState)
   } catch(e) {
     console.log(e)

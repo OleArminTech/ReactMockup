@@ -16,7 +16,7 @@ class App extends Component {
   render() {
     return (
       <div className="container">
-        <HeaderBar actions={this.props.actions} workOrder={this.props.workOrder} itemTest={this.props.itemTest} />
+        <HeaderBar actions={this.props.actions} workOrder={this.props.workOrder} />
         <div className="content">
           <SideBar />
           <div className="modules">

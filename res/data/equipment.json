@@ -1,0 +1,460 @@
+{
+  "entities": {
+    "100": {
+      "equipmentID": 100,
+      "componentID": "TAN02.01",
+      "equipmentName": "Storage Tank",
+      "skidID": "Storage Tank 2",
+      "dicipline": "Structural",
+      "type": "Structural",
+      "subtype": "Structural",
+      "equipmentdegradeID": 100
+    },
+    "200": {
+      "equipmentID": 200,
+      "componentID": "PMI02.01-M",
+      "equipmentName": "Agitator Motor",
+      "skidID": "Storage Tank 2",
+      "dicipline": "Mechanical",
+      "type": "Mechanical",
+      "subtype": "Mechanical",
+      "equipmentdegradeID": 200
+    },
+    "300": {
+      "equipmentID": 300,
+      "componentID": "HVA52.11",
+      "equipmentName": "Hand operated valve",
+      "skidID": "Storage Tank 2",
+      "dicipline": "Piping",
+      "type": "Piping",
+      "subtype": "Piping",
+      "equipmentdegradeID": 300
+    },
+    "400": {
+      "equipmentID": 400,
+      "componentID": "HVA50.38",
+      "equipmentName": "Hand operated valve",
+      "skidID": "",
+      "dicipline": "Piping",
+      "type": "Piping",
+      "subtype": "Piping",
+      "equipmentdegradeID": 400
+    },
+    "500": {
+      "equipmentID": 500,
+      "componentID": "HEX02.01",
+      "equipmentName": "Heat exchanger",
+      "skidID": "",
+      "dicipline": "Mechanical",
+      "type": "Mechanical",
+      "subtype": "Mechanical",
+      "equipmentdegradeID": 500
+    },
+    "600": {
+      "equipmentID": 600,
+      "componentID": "HVA50.39",
+      "equipmentName": "Hand operated valve",
+      "skidID": "",
+      "dicipline": "Piping",
+      "type": "Piping",
+      "subtype": "Piping",
+      "equipmentdegradeID": 600
+    },
+    "700": {
+      "equipmentID": 700,
+      "componentID": "PPU50.32",
+      "equipmentName": "Pump",
+      "skidID": "",
+      "dicipline": "Mechanical",
+      "type": "Mechanical",
+      "subtype": "Mechanical",
+      "equipmentdegradeID": 700
+    },
+    "800": {
+      "equipmentID": 800,
+      "componentID": "HVA50.33",
+      "equipmentName": "Hand operated valve",
+      "skidID": "",
+      "dicipline": "Piping",
+      "type": "Piping",
+      "subtype": "Piping",
+      "equipmentdegradeID": 800
+    },
+    "900": {
+      "equipmentID": 900,
+      "componentID": "TT50.31",
+      "equipmentName": "Temperature Transmitter",
+      "skidID": "",
+      "dicipline": "Instrument/Control",
+      "type": "Instrument/Control",
+      "subtype": "Instrument/Control",
+      "equipmentdegradeID": 900
+    },
+    "1000": {
+      "equipmentID": 1000,
+      "componentID": "HVA02.02",
+      "equipmentName": "Hand operated valve",
+      "skidID": "Storage Tank 2",
+      "dicipline": "Piping",
+      "type": "Piping",
+      "subtype": "Piping",
+      "equipmentdegradeID": 1000
+    },
+    "1100": {
+      "equipmentID": 1100,
+      "componentID": "PVA02.05",
+      "equipmentName": "Motorised valve",
+      "skidID": "",
+      "dicipline": "Piping",
+      "type": "Piping",
+      "subtype": "Piping",
+      "equipmentdegradeID": 1100
+    },
+    "1200": {
+      "equipmentID": 1200,
+      "componentID": "PVA05.05",
+      "equipmentName": "Motorised valve",
+      "skidID": "",
+      "dicipline": "Piping",
+      "type": "Piping",
+      "subtype": "Piping",
+      "equipmentdegradeID": 1200
+    },
+    "1300": {
+      "equipmentID": 1300,
+      "componentID": "HVA05.02",
+      "equipmentName": "Hand operated valve",
+      "skidID": "",
+      "dicipline": "Piping",
+      "type": "Piping",
+      "subtype": "Piping",
+      "equipmentdegradeID": 1300
+    },
+    "1400": {
+      "equipmentID": 1400,
+      "componentID": "TAN05.01",
+      "equipmentName": "Storage Tank",
+      "skidID": "",
+      "dicipline": "Structural",
+      "type": "Structural",
+      "subtype": "Structural",
+      "equipmentdegradeID": 1400
+    },
+    "1500": {
+      "equipmentID": 1500,
+      "componentID": "82EL0002",
+      "equipmentName": "Switchboard",
+      "skidID": "",
+      "dicipline": "Electrical",
+      "type": "Electrical",
+      "subtype": "Electrical",
+      "equipmentdegradeID": 1500
+    },
+    "1600": {
+      "equipmentID": 1600,
+      "componentID": "82EL0001",
+      "equipmentName": "Switchboard",
+      "skidID": "",
+      "dicipline": "Electrical",
+      "type": "Electrical",
+      "subtype": "Electrical",
+      "equipmentdegradeID": 1600
+    },
+    "1700": {
+      "equipmentID": 1700,
+      "componentID": "TT02.01",
+      "equipmentName": "Temperature Transmitter",
+      "skidID": "Storage Tank 2",
+      "dicipline": "Instrument/Control",
+      "type": "Instrument/Control",
+      "subtype": "Instrument/Control",
+      "equipmentdegradeID": 1700
+    },
+    "1800": {
+      "equipmentID": 1800,
+      "componentID": "LT02.01",
+      "equipmentName": "Level Transmitter",
+      "skidID": "Storage Tank 2",
+      "dicipline": "Instrument/Control",
+      "type": "Instrument/Control",
+      "subtype": "Instrument/Control",
+      "equipmentdegradeID": 1800
+    },
+    "1900": {
+      "equipmentID": 1900,
+      "componentID": "25JB1001",
+      "equipmentName": "Switchboard",
+      "skidID": "",
+      "dicipline": "Electrical",
+      "type": "Electrical",
+      "subtype": "Electrical",
+      "equipmentdegradeID": 1900
+    },
+    "2000": {
+      "equipmentID": 2000,
+      "componentID": "25JB1002",
+      "equipmentName": "Switchboard",
+      "skidID": "",
+      "dicipline": "Electrical",
+      "type": "Electrical",
+      "subtype": "Electrical",
+      "equipmentdegradeID": 2000
+    },
+    "2100": {
+      "equipmentID": 2100,
+      "componentID": "HVA02.05",
+      "equipmentName": "Hand operated valve",
+      "skidID": "",
+      "dicipline": "Piping",
+      "type": "Piping",
+      "subtype": "Piping",
+      "equipmentdegradeID": 2100
+    },
+    "2200": {
+      "equipmentID": 2200,
+      "componentID": "PMC02.01",
+      "equipmentName": "Macerator",
+      "skidID": "",
+      "dicipline": "Mechanical",
+      "type": "Mechanical",
+      "subtype": "Mechanical",
+      "equipmentdegradeID": 2200
+    },
+    "2300": {
+      "equipmentID": 2300,
+      "componentID": "HVA02.07",
+      "equipmentName": "Hand operated valve",
+      "skidID": "",
+      "dicipline": "Piping",
+      "type": "Piping",
+      "subtype": "Piping",
+      "equipmentdegradeID": 2300
+    },
+    "2400": {
+      "equipmentID": 2400,
+      "componentID": "HVA02.11",
+      "equipmentName": "Hand operated valve",
+      "skidID": "",
+      "dicipline": "Piping",
+      "type": "Piping",
+      "subtype": "Piping",
+      "equipmentdegradeID": 2400
+    },
+    "2500": {
+      "equipmentID": 2500,
+      "componentID": "HVA02.21",
+      "equipmentName": "Hand operated valve",
+      "skidID": "",
+      "dicipline": "Piping",
+      "type": "Piping",
+      "subtype": "Piping",
+      "equipmentdegradeID": 2500
+    },
+    "2600": {
+      "equipmentID": 2600,
+      "componentID": "HVA02.31",
+      "equipmentName": "Hand operated valve",
+      "skidID": "",
+      "dicipline": "Piping",
+      "type": "Piping",
+      "subtype": "Piping",
+      "equipmentdegradeID": 2600
+    },
+    "2700": {
+      "equipmentID": 2700,
+      "componentID": "PPU02.11",
+      "equipmentName": "Pump",
+      "skidID": "",
+      "dicipline": "Mechanical",
+      "type": "Mechanical",
+      "subtype": "Mechanical",
+      "equipmentdegradeID": 2700
+    },
+    "2800": {
+      "equipmentID": 2800,
+      "componentID": "PPU02.21",
+      "equipmentName": "Pump",
+      "skidID": "",
+      "dicipline": "Mechanical",
+      "type": "Mechanical",
+      "subtype": "Mechanical",
+      "equipmentdegradeID": 2800
+    },
+    "2900": {
+      "equipmentID": 2900,
+      "componentID": "PPU02.31",
+      "equipmentName": "Pump",
+      "skidID": "",
+      "dicipline": "Mechanical",
+      "type": "Mechanical",
+      "subtype": "Mechanical",
+      "equipmentdegradeID": 2900
+    },
+    "3000": {
+      "equipmentID": 3000,
+      "componentID": "PPU02.11-M",
+      "equipmentName": "Pump Motor",
+      "skidID": "",
+      "dicipline": "Mechanical",
+      "type": "Mechanical",
+      "subtype": "Mechanical",
+      "equipmentdegradeID": 3000
+    },
+    "3100": {
+      "equipmentID": 3100,
+      "componentID": "PPU02.21-M",
+      "equipmentName": "Pump Motor",
+      "skidID": "",
+      "dicipline": "Mechanical",
+      "type": "Mechanical",
+      "subtype": "Mechanical",
+      "equipmentdegradeID": 3100
+    },
+    "3200": {
+      "equipmentID": 3200,
+      "componentID": "PPU02.31-M",
+      "equipmentName": "Pump Motor",
+      "skidID": "",
+      "dicipline": "Mechanical",
+      "type": "Mechanical",
+      "subtype": "Mechanical",
+      "equipmentdegradeID": 3200
+    },
+    "3300": {
+      "equipmentID": 3300,
+      "componentID": "HVA02.13",
+      "equipmentName": "Hand operated valve",
+      "skidID": "",
+      "dicipline": "Piping",
+      "type": "Piping",
+      "subtype": "Piping",
+      "equipmentdegradeID": 3300
+    },
+    "3400": {
+      "equipmentID": 3400,
+      "componentID": "HVA02.23",
+      "equipmentName": "Hand operated valve",
+      "skidID": "",
+      "dicipline": "Piping",
+      "type": "Piping",
+      "subtype": "Piping",
+      "equipmentdegradeID": 3400
+    },
+    "3500": {
+      "equipmentID": 3500,
+      "componentID": "HVA02.33",
+      "equipmentName": "Hand operated valve",
+      "skidID": "",
+      "dicipline": "Piping",
+      "type": "Piping",
+      "subtype": "Piping",
+      "equipmentdegradeID": 3500
+    },
+    "3600": {
+      "equipmentID": 3600,
+      "componentID": "HVA02.03",
+      "equipmentName": "Hand operated valve",
+      "skidID": "Storage Tank 2",
+      "dicipline": "Piping",
+      "type": "Piping",
+      "subtype": "Piping",
+      "equipmentdegradeID": 3600
+    },
+    "3700": {
+      "equipmentID": 3700,
+      "componentID": "LS02.01",
+      "equipmentName": "Level Switch",
+      "skidID": "Storage Tank 2",
+      "dicipline": "Instrument/Control",
+      "type": "Instrument/Control",
+      "subtype": "Instrument/Control",
+      "equipmentdegradeID": 3700
+    },
+    "3800": {
+      "equipmentID": 3800,
+      "componentID": "PMI02.01",
+      "equipmentName": "Agitator",
+      "skidID": "Storage Tank 2",
+      "dicipline": "Mechanical",
+      "type": "Mechanical",
+      "subtype": "Mechanical",
+      "equipmentdegradeID": 3800
+    },
+    "3900": {
+      "equipmentID": 3900,
+      "componentID": "PFA52.02",
+      "equipmentName": "Fan",
+      "skidID": "",
+      "dicipline": "Mechanical",
+      "type": "Mechanical",
+      "subtype": "Mechanical",
+      "equipmentdegradeID": 3900
+    },
+    "4000": {
+      "equipmentID": 4000,
+      "componentID": "PVA50.35",
+      "equipmentName": "Motorised valve",
+      "skidID": "",
+      "dicipline": "Piping",
+      "type": "Piping",
+      "subtype": "Piping",
+      "equipmentdegradeID": 4000
+    },
+    "4200": {
+      "equipmentID": 4200,
+      "componentID": "87IR0001",
+      "equipmentName": "Switchboard",
+      "skidID": "",
+      "dicipline": "Instrument/Control",
+      "type": "Instrument/Control",
+      "subtype": "Instrument/Control",
+      "equipmentdegradeID": 4200
+    },
+    "4300": {
+      "equipmentID": 4300,
+      "componentID": "TS02.11",
+      "equipmentName": "Temperature Transmitter",
+      "skidID": "",
+      "dicipline": "Instrument/Control",
+      "type": "Instrument/Control",
+      "subtype": "Instrument/Control",
+      "equipmentdegradeID": 4300
+    },
+    "4400": {
+      "equipmentID": 4400,
+      "componentID": "TS02.21",
+      "equipmentName": "Temperature Transmitter",
+      "skidID": "",
+      "dicipline": "Instrument/Control",
+      "type": "Instrument/Control",
+      "subtype": "Instrument/Control",
+      "equipmentdegradeID": 4400
+    },
+    "4500": {
+      "equipmentID": 4500,
+      "componentID": "TS02.31",
+      "equipmentName": "Temperature Transmitter",
+      "skidID": "",
+      "dicipline": "Instrument/Control",
+      "type": "Instrument/Control",
+      "subtype": "Instrument/Control",
+      "equipmentdegradeID": 4500
+    },
+    "4600": {
+      "equipmentID": 4600,
+      "componentID": "FT02.01",
+      "equipmentName": "Flow Fransmitter",
+      "skidID": "",
+      "dicipline": "Instrument/Control",
+      "type": "Instrument/Control",
+      "subtype": "Instrument/Control",
+      "equipmentdegradeID": 4600
+    }
+  },
+  "IDs": [
+    100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1100, 1200, 1300, 1400,
+    1500, 1600, 1700, 1800, 1900, 2000, 2100, 2200, 2300, 2400, 2500, 2600, 2700,
+    2800, 2900, 3000, 3100, 3200, 3300, 3400, 3500, 3600, 3700, 3800, 3900, 4000,
+    4200, 4300, 4400, 4500, 4600
+  ]
+}

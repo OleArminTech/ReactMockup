@@ -1,0 +1,452 @@
+{
+  "entities": {
+    "1": {
+      "instructionID": 1,
+      "equipmentID": 100,
+      "instruction": "Check functioning of meter"
+    },
+    "2": {
+      "instructionID": 2,
+      "equipmentID": 100,
+      "instruction": "Visual checks for functioning of all panel indication lamps (indicating tracer circuit healthily condition)"
+    },
+    "3": {
+      "instructionID": 3,
+      "equipmentID": 300,
+      "instruction": "Check functioning of meter"
+    },
+    "4": {
+      "instructionID": 4,
+      "equipmentID": 300,
+      "instruction": "Test Functioning of lamp indicators"
+    },
+    "5": {
+      "instructionID": 5,
+      "equipmentID": 4700,
+      "instruction": "Test Functioning of meters, and lamp indicators"
+    },
+    "6": {
+      "instructionID": 6,
+      "equipmentID": 4700,
+      "instruction": "Check functioning of meter"
+    },
+    "7": {
+      "instructionID": 7,
+      "equipmentID": 4700,
+      "instruction": "Visual checks for dirt and contamination"
+    },
+    "8": {
+      "instructionID": 8,
+      "equipmentID": 4800,
+      "instruction": "Test Functioning of meters, and lamp indicators"
+    },
+    "9": {
+      "instructionID": 9,
+      "equipmentID": 4800,
+      "instruction": "Check functioning of meter"
+    },
+    "10": {
+      "instructionID": 10,
+      "equipmentID": 4800,
+      "instruction": "Visual checks for dirt and contamination"
+    },
+    "11": {
+      "instructionID": 11,
+      "equipmentID": 1700,
+      "instruction": "Check Functioning of meters"
+    },
+    "12": {
+      "instructionID": 12,
+      "equipmentID": 1800,
+      "instruction": "Check Functioning of meters"
+    },
+    "13": {
+      "instructionID": 13,
+      "equipmentID": 900,
+      "instruction": "Check motor for correct speed"
+    },
+    "14": {
+      "instructionID": 14,
+      "equipmentID": 900,
+      "instruction": "Check impeller adjustment"
+    },
+    "15": {
+      "instructionID": 15,
+      "equipmentID": 900,
+      "instruction": "Check impeller trim"
+    },
+    "16": {
+      "instructionID": 16,
+      "equipmentID": 900,
+      "instruction": "Check packing rings for leakage"
+    },
+    "17": {
+      "instructionID": 17,
+      "equipmentID": 900,
+      "instruction": "Pull Motor and inspect for damage"
+    },
+    "18": {
+      "instructionID": 18,
+      "equipmentID": 900,
+      "instruction": "Check for imbalance"
+    },
+    "19": {
+      "instructionID": 19,
+      "equipmentID": 900,
+      "instruction": "Inspect seating of motor bearing"
+    },
+    "20": {
+      "instructionID": 20,
+      "equipmentID": 900,
+      "instruction": "Field balance coupling"
+    },
+    "21": {
+      "instructionID": 21,
+      "equipmentID": 900,
+      "instruction": "Check for overall Motor concentricity"
+    },
+    "22": {
+      "instructionID": 22,
+      "equipmentID": 900,
+      "instruction": "Check pipe strain does not exceed limits recommended"
+    },
+    "23": {
+      "instructionID": 23,
+      "equipmentID": 900,
+      "instruction": "Check alignment in shaft"
+    },
+    "24": {
+      "instructionID": 24,
+      "equipmentID": 900,
+      "instruction": "Disassemble Motor, inspect for foreign material"
+    },
+    "25": {
+      "instructionID": 25,
+      "equipmentID": 900,
+      "instruction": "Check balance in impeller"
+    },
+    "26": {
+      "instructionID": 26,
+      "equipmentID": 900,
+      "instruction": "Check for resonance for frequency above accepted level"
+    },
+    "27": {
+      "instructionID": 27,
+      "equipmentID": 900,
+      "instruction": "Inspect bowl case for signs of scratching from impeller"
+    },
+    "28": {
+      "instructionID": 28,
+      "equipmentID": 900,
+      "instruction": "Check for Cavitation on impeller"
+    },
+    "29": {
+      "instructionID": 29,
+      "equipmentID": 900,
+      "instruction": "Check for Foreign material in Motor"
+    },
+    "30": {
+      "instructionID": 30,
+      "equipmentID": 900,
+      "instruction": "Check Oil level in lubricating gearcase."
+    },
+    "31": {
+      "instructionID": 31,
+      "equipmentID": 1000,
+      "instruction": "Check Oil level in lubricating gearcase."
+    },
+    "32": {
+      "instructionID": 32,
+      "equipmentID": 1100,
+      "instruction": "Check for wearing on bearing"
+    },
+    "33": {
+      "instructionID": 33,
+      "equipmentID": 1100,
+      "instruction": "Check for minimum submergence, ensure min water level is above the centerline of first stage impeller"
+    },
+    "34": {
+      "instructionID": 34,
+      "equipmentID": 1100,
+      "instruction": "Check column bearings"
+    },
+    "35": {
+      "instructionID": 35,
+      "equipmentID": 1100,
+      "instruction": "Inspect shaft for breakage"
+    },
+    "36": {
+      "instructionID": 36,
+      "equipmentID": 1200,
+      "instruction": "Check Surface Overheating/sparking"
+    },
+    "37": {
+      "instructionID": 37,
+      "equipmentID": 1200,
+      "instruction": "Check Ventilation"
+    },
+    "38": {
+      "instructionID": 38,
+      "equipmentID": 1200,
+      "instruction": "Check Alignment with coupled machine."
+    },
+    "39": {
+      "instructionID": 39,
+      "equipmentID": 1400,
+      "instruction": "Check Vibration"
+    },
+    "40": {
+      "instructionID": 40,
+      "equipmentID": 1400,
+      "instruction": "Inspect for Abnormal noise"
+    },
+    "41": {
+      "instructionID": 41,
+      "equipmentID": 1600,
+      "instruction": "Check for externalt leakage"
+    },
+    "42": {
+      "instructionID": 42,
+      "equipmentID": 1600,
+      "instruction": "Perform functional check of valve movement"
+    },
+    "43": {
+      "instructionID": 43,
+      "equipmentID": 1800,
+      "instruction": "Check Operation of cooling fans & surface temperature"
+    },
+    "44": {
+      "instructionID": 44,
+      "equipmentID": 2000,
+      "instruction": "Check for externalt leakage"
+    },
+    "45": {
+      "instructionID": 45,
+      "equipmentID": 2000,
+      "instruction": "Perform functional check of valve movement"
+    },
+    "46": {
+      "instructionID": 46,
+      "equipmentID": 2100,
+      "instruction": "Check for externalt leakage"
+    },
+    "47": {
+      "instructionID": 47,
+      "equipmentID": 2100,
+      "instruction": "Perform functional check of valve movement"
+    },
+    "48": {
+      "instructionID": 48,
+      "equipmentID": 2300,
+      "instruction": "Check Surface Overheating/sparking"
+    },
+    "49": {
+      "instructionID": 49,
+      "equipmentID": 2300,
+      "instruction": "Check  Sliprings, brushgear polish and cleanliness of machine winding."
+    },
+    "50": {
+      "instructionID": 50,
+      "equipmentID": 2300,
+      "instruction": "Check Voltage drop"
+    },
+    "51": {
+      "instructionID": 51,
+      "equipmentID": 2300,
+      "instruction": "Check Alignment with coupled machine."
+    },
+    "52": {
+      "instructionID": 52,
+      "equipmentID": 3900,
+      "instruction": "Check Vibration"
+    },
+    "53": {
+      "instructionID": 53,
+      "equipmentID": 3900,
+      "instruction": "Inspect for Abnormal noise"
+    },
+    "54": {
+      "instructionID": 54,
+      "equipmentID": 2500,
+      "instruction": "Check lubrication"
+    },
+    "55": {
+      "instructionID": 55,
+      "equipmentID": 2500,
+      "instruction": "Check  condition of bearings"
+    },
+    "56": {
+      "instructionID": 56,
+      "equipmentID": 2800,
+      "instruction": "Check lubrication"
+    },
+    "57": {
+      "instructionID": 57,
+      "equipmentID": 2800,
+      "instruction": "Check  condition of bearings"
+    },
+    "58": {
+      "instructionID": 58,
+      "equipmentID": 3200,
+      "instruction": "Check Surface overheating"
+    },
+    "59": {
+      "instructionID": 59,
+      "equipmentID": 3200,
+      "instruction": "Check Ventilation"
+    },
+    "60": {
+      "instructionID": 60,
+      "equipmentID": 3200,
+      "instruction": "Perform Signature analysis"
+    },
+    "61": {
+      "instructionID": 61,
+      "equipmentID": 3200,
+      "instruction": "Check  Sparking of brushes"
+    },
+    "62": {
+      "instructionID": 62,
+      "equipmentID": 3200,
+      "instruction": "Check condition of commutator (for sparking), brushes, and collector rings"
+    },
+    "63": {
+      "instructionID": 63,
+      "equipmentID": 3200,
+      "instruction": "Check bearing condition(lubrication, noise, and temperature)"
+    },
+    "64": {
+      "instructionID": 64,
+      "equipmentID": 3200,
+      "instruction": "Cooling system condition."
+    },
+    "65": {
+      "instructionID": 65,
+      "equipmentID": 3200,
+      "instruction": "Functioning of meters"
+    },
+    "66": {
+      "instructionID": 66,
+      "equipmentID": 3200,
+      "instruction": "Check resistance in Insulation"
+    },
+    "67": {
+      "instructionID": 67,
+      "equipmentID": 3200,
+      "instruction": "Check earthing connections (checks shall include earth resistance measurements, tightness of connections, and continuity of conductors"
+    },
+    "68": {
+      "instructionID": 68,
+      "equipmentID": 3200,
+      "instruction": "Check DC resistance"
+    },
+    "69": {
+      "instructionID": 69,
+      "equipmentID": 3200,
+      "instruction": "Visual checks for functioning of all panel indication lamps (indicating tracer circuit healthily condition)"
+    },
+    "70": {
+      "instructionID": 70,
+      "equipmentID": 3300,
+      "instruction": "Check Operation of circuits especially related to space heater,temperature   detector, trippingdevices, annun-ciators   and interlocks."
+    },
+    "71": {
+      "instructionID": 71,
+      "equipmentID": 3300,
+      "instruction": "Perform Functional checks for all circuits,  and annunciation"
+    },
+    "72": {
+      "instructionID": 72,
+      "equipmentID": 3300,
+      "instruction": "Inspect for Overheating, and sparking"
+    },
+    "73": {
+      "instructionID": 73,
+      "equipmentID": 3300,
+      "instruction": "Inspect for Corrosion effect (external)"
+    },
+    "74": {
+      "instructionID": 74,
+      "equipmentID": 3300,
+      "instruction": "Check Operation of switchyard equipment with control,   trip, and annunciation  circuits"
+    },
+    "75": {
+      "instructionID": 75,
+      "equipmentID": 3300,
+      "instruction": "Check Alignment between contacts"
+    },
+    "76": {
+      "instructionID": 76,
+      "equipmentID": 3300,
+      "instruction": "Check Current reading of each circuit and check for any blown out fuse"
+    },
+    "77": {
+      "instructionID": 77,
+      "equipmentID": 3400,
+      "instruction": "Inspect for Internal damages (breakage of barriers, are chute cracks,  jamming solenoid, dirt/dust accumulation in any part etc.)"
+    },
+    "78": {
+      "instructionID": 78,
+      "equipmentID": 3400,
+      "instruction": "Inspect for Corrosion effect (external)"
+    },
+    "79": {
+      "instructionID": 79,
+      "equipmentID": 3500,
+      "instruction": "Inspect for Oil leakage"
+    },
+    "80": {
+      "instructionID": 80,
+      "equipmentID": 3500,
+      "instruction": "Inspect for Corrosion effect (external)"
+    },
+    "81": {
+      "instructionID": 81,
+      "equipmentID": 3500,
+      "instruction": "Check Condition of oil soak pit and oil  drainage arrangement"
+    },
+    "82": {
+      "instructionID": 82,
+      "equipmentID": 3500,
+      "instruction": "Check Dielectric strength and acidity  tests of oil samples"
+    },
+    "83": {
+      "instructionID": 83,
+      "equipmentID": 3500,
+      "instruction": "Check  Phase sequence (when transformers have to be paralleled"
+    },
+    "84": {
+      "instructionID": 84,
+      "equipmentID": 3500,
+      "instruction": "Check  Circulation of oil"
+    },
+    "85": {
+      "instructionID": 85,
+      "equipmentID": 3500,
+      "instruction": "Check Temperature measurements at inspection points"
+    },
+    "86": {
+      "instructionID": 86,
+      "equipmentID": 4000,
+      "instruction": "Check Temperature measurements at inspection points"
+    },
+    "87": {
+      "instructionID": 87,
+      "equipmentID": 4200,
+      "instruction": "Check earthing connections (checks shall include earth resistance measurements, tightness of connections, and continuity of conductors"
+    },
+    "88": {
+      "instructionID": 88,
+      "equipmentID": 4100,
+      "instruction": "Check Temperature measurements at inspection points"
+    },
+    "89": {
+      "instructionID": 89,
+      "equipmentID": 4100,
+      "instruction": "Check DC resistance"
+    }
+  },
+  "IDs": [
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89
+  ]
+}
