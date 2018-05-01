@@ -1,6 +1,7 @@
 import { ENTER_WORKORDER } from '../actions/actionTypes'
 
 let workOrderReducer = function(workOrder = {
+    workOrderID: 0,
     workOrderName: "",
     type: ""
   }, action) {
