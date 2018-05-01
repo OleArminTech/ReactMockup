@@ -36,14 +36,12 @@ class App extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return state
+const mapStateToProps = (state) => {
+  return state;
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    actions: bindActionCreators(actions, dispatch)
-  }
+const mapDispatchToProps = (dispatch) => {
+  return { actions: bindActionCreators(actions, dispatch) }
 }
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App))
