@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
@@ -36,17 +37,18 @@ class WorkOrder extends Component {
       </div>
     )
   }
-
 }
 
-function mapStateToProps(state) {
-  return state
+WorkOrder.PropTypes = {
+  enterWorkOrder: PropTypes.func
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    actions: bindActionCreators(actions, dispatch)
-  }
+const mapStateToProps = (state) => {
+  return { workOrder: state.workOrder };
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return { actions: bindActionCreators(actions, dispatch) }
 }
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(WorkOrder))

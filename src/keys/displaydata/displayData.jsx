@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types';
 import HistoryContainer from './containers/historyContainer'
 import Instructions from './containers/instructions'
 import Ranking from './containers/ranking'
@@ -33,7 +34,10 @@ class DisplayData extends Component {
       </div>
     )
   }
+}
 
+DisplayData.PropTypes = {
+  pathname: PropTypes.string
 }
 
 export default DisplayData
