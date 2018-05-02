@@ -24,7 +24,7 @@ class HeaderBar extends Component {
   }
 }
 
-HeaderBar.PropTypes = {
+HeaderBar.propTypes = {
   workOrderName: PropTypes.string
 }
 
