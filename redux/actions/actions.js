@@ -10,6 +10,7 @@ import * as skidActions from './skidActions'
 import * as userActions from './userActions'
 import * as userInterfaceActions from './userInterfaceActions'
 import * as workOrderActions from './workOrderActions'
+import * as popupActions from './popupActions'
 
 const actions = Object.assign({},
   connectionsActions,
@@ -23,7 +24,8 @@ const actions = Object.assign({},
   skidActions,
   userActions,
   userInterfaceActions,
-  workOrderActions
+  workOrderActions,
+  popupActions
 )
 
 export default actions

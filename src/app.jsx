@@ -11,6 +11,8 @@ import WorkOrder from './keys/workorder/workOrder'
 import PageNotFound from './errorpages/pageNotFound'
 import '../styles/index.css'
 
+import PopupMenu from './keys/popupmenu/popupMenu'
+
 class App extends Component {
 
   render() {
@@ -18,7 +20,8 @@ class App extends Component {
       <div className="container">
         <HeaderBar actions={this.props.actions} workOrder={this.props.workOrder} />
         <div className="content">
-          <SideBar />
+          {this.props.popup.openModal && <PopupMenu popup={this.props.popup} actions={this.props.actions}/>}
+          <SideBar popupType={this.props.actions.popupType}/>
           <div className="modules">
             <Switch>
               <Route exact path="/" component={WorkOrder} />
