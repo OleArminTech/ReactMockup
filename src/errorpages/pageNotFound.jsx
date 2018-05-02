@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types';
 import { Redirect, NavLink, withRouter } from 'react-router-dom'
 
 class PageNotFound extends Component {
@@ -28,7 +29,10 @@ class PageNotFound extends Component {
       </div>
     )
   }
+}
 
+PageNotFound.PropTypes = {
+  goBack: PropTypes.func
 }
 
 export default withRouter(PageNotFound)

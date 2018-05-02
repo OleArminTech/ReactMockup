@@ -2,6 +2,7 @@ import * as connectionsActions from './connectionsActions'
 import * as connectionTypesActions from './connectionTypesActions'
 import * as customerActions from './customerActions'
 import * as datasetsActions from './datasetsActions'
+import * as displayDataActions from './displayDataActions'
 import * as equipmentActions from './equipmentActions'
 import * as equipmentDegradationActions from './equipmentDegradationActions'
 import * as selectedEquipmentActions from './selectedEquipmentActions'
@@ -16,6 +17,7 @@ const actions = Object.assign({},
   connectionTypesActions,
   customerActions,
   datasetsActions,
+  displayDataActions,
   equipmentActions,
   equipmentDegradationActions,
   selectedEquipmentActions,
