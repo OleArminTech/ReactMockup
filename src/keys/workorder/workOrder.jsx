@@ -39,8 +39,8 @@ class WorkOrder extends Component {
   }
 }
 
-WorkOrder.PropTypes = {
-  enterWorkOrder: PropTypes.func
+WorkOrder.propTypes = {
+  enterWorkOrder: PropTypes.string
 }
 
 const mapStateToProps = (state) => {

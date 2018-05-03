@@ -31,7 +31,7 @@ class PageNotFound extends Component {
   }
 }
 
-PageNotFound.PropTypes = {
+PageNotFound.propTypes = {
   goBack: PropTypes.func
 }
 

@@ -36,7 +36,7 @@ class DisplayData extends Component {
   }
 }
 
-DisplayData.PropTypes = {
+DisplayData.propTypes = {
   pathname: PropTypes.string
 }
 
