@@ -1,44 +1,37 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import _ from 'lodash'
+import vis from 'vis'
 import equipment from '../../../res/data/equipment.json'
 import connections from '../../../res/data/connections.json'
 import connectionTypes from '../../../res/data/connectionTypes.json'
+import '../../../styles/diagram.css'
+import { initializeNetwork, populateNetwork } from '../../scripts/vis/networkFunctions'
 
 class Diagram extends Component {
 
   constructor(props, context) {
     super(props, context)
-    this.state = { text: "" }
+    this.state = {
+      nodes: null,
+      edges: null,
+      data: null,
+      options: null,
+      network: null,
+      addNode: false
+    }
   }
 
-  componentDidMount(){
-    this.setState({ equipment: equipment, connections: connections, connectionTypes: connectionTypes })
+  componentDidMount() {
+    console.log(this.state)
+    this.setState(initializeNetwork(this.state, this.refs.visNetwork))
+    console.log(this.state)
+    populateNetwork(equipment, connections, connectionTypes, this.state)
+    console.log(this.state)
+    this.state.addNode = true
   }
-
 
   render() {
-    return (
-      <div>
-        <h1>Diagram</h1>
-        <div>
-          { this.state.equipment && _.map(this.state.equipment.IDs, key => {
-            return "" + key + ", "
-            })}
-        </div>
-        <br />
-        <div>
-          { this.state.connections && _.map(this.state.connections.IDs, key => {
-            return "" + key + ", "
-            })}
-        </div>
-        <br />
-        <div>
-          { this.state.connectionTypes && _.map(this.state.connectionTypes.IDs, key => {
-            return "" + key + ", "
-            })}
-        </div>
-      </div>
-    )
+    return (<div className="diagram" ref="visNetwork"/>)
   }
 }
 
