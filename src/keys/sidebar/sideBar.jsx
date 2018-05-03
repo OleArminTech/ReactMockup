@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
 import arminIcon from '../../../res/img/ArminIcon.png'
 import '../../../styles/sideBar.css'
+import PropTypes from 'prop-types'
 
 class SideBar extends Component {
 
@@ -14,9 +15,11 @@ class SideBar extends Component {
     }
   }
 
-  randomFunction(id, event){
-    console.log(id)
-    console.log(event)
+  handleClearSelection(event){
+    console.log("Clear Selection: WiP")
+  }
+
+  openModalWithId(id, event){
     this.props.popupType(id)
   }
 
@@ -24,17 +27,12 @@ class SideBar extends Component {
     return (
       <div className="sideBar">
         <section className="selectorsGroup">
-          <a href="#" onClick={this.randomFunction.bind(this, "FIND")}>             <img src={arminIcon} /> <span>Find</span>  </a>
-          <a href="#" onClick={this.randomFunction.bind(this, "FILTER")}>           <img src={arminIcon} /> <span>Filter</span>  </a>
-          <a href="#" onClick={this.randomFunction.bind(this, "PATH")}>             <img src={arminIcon} /> <span>Path</span>  </a>
-          <a href="#" onClick={this.randomFunction.bind(this, "OFFSET")}>           <img src={arminIcon} /> <span>Offset</span>  </a>
-          <a href="#" onClick={this.randomFunction.bind(this, "CLEAR_SELECTION")}>  <img src={arminIcon} /> <span>Clear Selection</span>  </a>
+          <a href="#" onClick={this.openModalWithId.bind(this, "MODAL_FIND")}>             <img src={arminIcon} /> <span>Find</span>  </a>
+          <a href="#" onClick={this.openModalWithId.bind(this, "MODAL_FILTER")}>           <img src={arminIcon} /> <span>Filter</span>  </a>
+          <a href="#" onClick={this.openModalWithId.bind(this, "MODAL_PATH")}>             <img src={arminIcon} /> <span>Path</span>  </a>
+          <a href="#" onClick={this.openModalWithId.bind(this, "MODAL_OFFSET")}>           <img src={arminIcon} /> <span>Offset</span>  </a>
+          <a href="#" onClick={this.handleClearSelection.bind(this)}>           <img src={arminIcon} /> <span>Clear Selection</span>  </a>
 
-          {/* <NavLink to="/"><img src={arminIcon} /><span>Find</span></NavLink>
-          <NavLink to="/"><img src={arminIcon} /><span>Filter</span></NavLink>
-          <NavLink to="/"><img src={arminIcon} /><span>Path</span></NavLink>
-          <NavLink to="/"><img src={arminIcon} /><span>Offset</span></NavLink>
-          <NavLink to="/"><img src={arminIcon} /><span>Clear Selection</span></NavLink> */}
         </section>
         <hr />
         <section className="modulesGroup">
@@ -55,6 +53,10 @@ class SideBar extends Component {
     )
   }
 
+}
+
+SideBar.propTypes = {
+  popupType: PropTypes.func
 }
 
 export default SideBar

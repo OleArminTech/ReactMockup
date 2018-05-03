@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Popup from 'reactjs-popup'
+import PropTypes from 'prop-types'
 
 class PopupMenu extends Component {
 
@@ -11,7 +12,7 @@ class PopupMenu extends Component {
   //     done: false
   //   }
   // }
-  myCloseFunction(event){
+  closeModal(event){
     console.log(this.props)
     this.props.actions.popupClose(false)
   }
@@ -25,14 +26,20 @@ class PopupMenu extends Component {
           closeOnDocumentClick = {false}
         >
           <span>
-            <div>Oy mate, u luki'n at mi nan?</div>
-            <button onClick={this.myCloseFunction.bind(this)}>bloddy wanker...</button>
+            <div>This is a Modal</div>
+            <button onClick={this.closeModal.bind(this)}>Close</button>
           </span>
         </Popup>
       </div>
     )
   }
 
+}
+
+PopupMenu.propTypes = {
+  popup: PropTypes.shape({
+    openModal: PropTypes.string
+  })
 }
 
 export default PopupMenu
