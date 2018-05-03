@@ -28,7 +28,7 @@ html, body {
 
 .modules {
   padding: 0;
-  background-color: #E5FFCC;
+  background-color: #EEEEEE;
   flex: 1;
   overflow-y: scroll;
 }
