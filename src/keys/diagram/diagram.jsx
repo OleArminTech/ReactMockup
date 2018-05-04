@@ -10,7 +10,7 @@ import { setCountdown, resetIntervals } from '../../scripts/timerFunctions'
 
 class Diagram extends Component {
 
-  const constructor = (props, context) => {
+  constructor(props, context) {
     super(props, context)
     this.state = {
       nodes: null,
@@ -24,7 +24,7 @@ class Diagram extends Component {
     }
   }
 
-  const addnodefunc = () => {
+  addnodefunc(){
     this.state.nodes.add({id: 10001, label: "Modul 1"})
     this.state.nodes.add({id: 10002, label: "Modul 2"})
     this.state.nodes.add({id: 10003, label: "Modul 3"})
@@ -71,19 +71,21 @@ class Diagram extends Component {
     this.state.addnode = false
   }
 
-  const changeView = () => this.state.network.fit({nodes: [10001, 10002, 10003], animation: false})
 
-  const componentDidMount = () => {
+  changeView() ={ this.state.network.fit({nodes: [10001, 10002, 10003], animation: false}) }
+
+  componentDidMount(){
     this.setState(initializeNetwork(this.state, this.refs.visNetwork))
     this.setState(populateNetwork(equipment, connections, connectionTypes, this.state))
     this.state.addnode = true
-    this.state.interval = setInterval(this.timerfunc.bind(this), 1000)
-    setCountdown(this.testtest.bind(this), 5)
+    setCountdown(this.changeView.bind(this), 5)
   }
 
-  const componentWillUnmount = () => resetIntervals() // Reset interval if user leaves
+  componentWillUnmount(){
+    resetIntervals() // Reset interval if user leaves
+  }
 
-  const render = () => {
+  render(){
     if (this.state.addnode) this.addnodefunc()
     return (<div className="diagram" ref="visNetwork"/>)
   }

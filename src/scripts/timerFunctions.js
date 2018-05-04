@@ -3,15 +3,14 @@ let intervalID = 0
 let functionvar = null
 
 const countTracker = () => {
-  console.log("Tracker fire")
   if(count === 0){
-    console.log("Yeap")
+    console.log("Countdown complete")
     clearInterval(intervalID)
     functionvar()
 
   } else{
+    console.log(count)
     count -= 1
-    console.log("New count: " + count)
   }
 }
 
@@ -21,9 +20,8 @@ export const resetIntervals = () => {
 }
 
 export const setCountdown = (testtest, time) => {
-  console.log("Start countdown")
   count = time
   functionvar = testtest
-  console.log("Count: " + count + " - Time: " + time + " - Function: " + functionvar)
+  console.log("Start countdown with time: " + time + "second(s):")
   intervalID = setInterval(countTracker, 1000)
 }
