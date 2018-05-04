@@ -40,8 +40,9 @@ export const initializeNetwork = (state, path) => {
       "smooth": {
         "type": "cubicBezier",
         "forceDirection": "horizontal",
-        "roundness": 1
-      }
+        "roundness": 0.75
+      },
+      width: 2
     },
     interaction: {
       multiselect: false,
@@ -86,4 +87,5 @@ export const populateNetwork = (equipment, connections, connectionTypes, state) 
     })
   })
   state.network.stabilize()
+  return state
 }
