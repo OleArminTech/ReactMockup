@@ -89,3 +89,51 @@ export const populateNetwork = (equipment, connections, connectionTypes, state) 
   state.network.stabilize()
   return state
 }
+
+export const addNodes = (state) => {
+  state.nodes.add({id: 10001, label: "Modul 1"})
+  state.nodes.add({id: 10002, label: "Modul 2"})
+  state.nodes.add({id: 10003, label: "Modul 3"})
+  state.edges.add({
+    id: 10001,
+    from: 10002,
+    to: 10001,
+    label: "Kobling 1",
+    smooth: {
+      type: "curvedCCW",
+      roundness: 0.4
+    }
+  })
+  state.edges.add({
+    id: 10002,
+    from: 10003,
+    to: 10001,
+    label: "Kobling 2",
+    smooth: {
+      type: "curvedCCW",
+      roundness: 0.4
+    }
+  })
+  state.edges.add({
+    id: 10003,
+    from: 10001,
+    to: 10003,
+    label: "Kobling 3",
+    smooth: {
+      type: "curvedCCW",
+      roundness: 0.4
+    }
+  })
+  state.edges.add({
+    id: 10004,
+    from: 10002,
+    to: 10003,
+    label: "Kobling 4",
+    smooth: {
+      type: "curvedCW",
+      roundness: 0.4
+    }
+  })
+  state.addnode = false
+  return state
+}
