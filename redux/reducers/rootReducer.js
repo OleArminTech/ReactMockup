@@ -12,6 +12,7 @@ import skidReducer from './skidReducer'
 import userInterfaceReducer from './userInterfaceReducer'
 import userReducer from './userReducer'
 import workOrderReducer from './workOrderReducer'
+import popupReducer from './popupReducer'
 
 export default combineReducers({
   connections: connectionsReducer,
@@ -26,5 +27,6 @@ export default combineReducers({
   skid: skidReducer,
   userInterface: userInterfaceReducer,
   user: userReducer,
-  workOrder: workOrderReducer
+  workOrder: workOrderReducer,
+  popup: popupReducer
 })
