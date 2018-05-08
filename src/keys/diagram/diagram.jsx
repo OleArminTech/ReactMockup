@@ -11,6 +11,7 @@ import connections from '../../../res/data/connections.json'
 import connectionTypes from '../../../res/data/connectionTypes.json'
 import '../../../styles/diagram.css'
 import { initializeNetwork, populateNetwork, addNodes } from '../../scripts/vis/diagramNetworkFunctions'
+import { NODE_COLOR_DEFAULT, NODE_COLOR_SELECTED } from '../../elements/diagramConstants'
 
 class Diagram extends Component {
 
@@ -23,7 +24,7 @@ class Diagram extends Component {
       options: null,
       network: null,
       nodesAdded: false,
-      timeoutValue: null,
+      timeoutValues: [],
       selectedEquipment: {
         entities: {},
         numberOfSelected: 0
@@ -32,40 +33,74 @@ class Diagram extends Component {
   }
 
   changeView = () => {
+    // Moves the camera to fit the skid "Storage Tank 2"
     this.state.network.fit({
       nodes: [100, 200, 300, 1000, 1700, 1800, 3600, 3700, 3800],
       animation: true
     })
   }
 
-  setNetworkListeners = () => {
-    this.state.network.on("doubleClick", params => {
-      if(_.includes(this.props.selectedEquipment.entities, params.nodes[0])){
-        // If allready there, remove
-        this.props.actions.removeSelected(params.nodes[0])
-      }else{
-        // If not there, add
-        this.props.actions.addSelected(params.nodes[0])
-      }
+  markSelectedNodes = () => {
+    // Map through all selected equipment and set colors to marked
+    let selectedNodes = []
+    _.map(this.props.selectedEquipment.entities, node => {
+      let updateNode = this.state.nodes.get(node)
+      updateNode.color = NODE_COLOR_SELECTED
+      selectedNodes.push(updateNode)
     })
-    this.state.timeoutValue = setTimeout(this.changeView.bind(this), 500)
+    // Update everything to the network to make it visible
+    this.state.nodes.update(selectedNodes)
+  }
+
+  setNetworkListeners = () => {
+    // On doubleclick, either select or unselect equipment node
+    this.state.network.on("doubleClick", params => {
+      // Save the selected node to perform updates
+      let selectedNode = this.state.nodes.get(params.nodes[0])
+      if(!_.includes(this.props.selectedEquipment.entities, selectedNode.id)){
+        // If not allready selected, add the node to selected
+        this.props.actions.addSelected(selectedNode.id)
+        // Change color to signal it's selected
+        selectedNode.color = NODE_COLOR_SELECTED
+      }else{
+        // If node is allready selected, remove it
+        this.props.actions.removeSelected(selectedNode.id)
+        // Change the color back to normal
+        selectedNode.color = NODE_COLOR_DEFAULT
+      }
+      this.state.nodes.update(selectedNode)
+    })
+  }
+
+  networkSetup = () => {
+    // Function to initialize and populate the network. Uses local state
+    this.setState(initializeNetwork(this.state, this.refs.visNetwork))
+    this.setState(populateNetwork(equipment, connections, connectionTypes, this.state))
+
+    // Random function to test adding more nodes
+    //this.setState(addNodes(this.state))
+
+    // Once network is stabilized, set listeners and mark potential selected equipment
+    this.state.network.once("stabilizationIterationsDone", () => {
+      // Wait 500ms and then set listeners
+      this.state.timeoutValues.push(setTimeout(this.setNetworkListeners.bind(this), 500))
+      // Wait 600ms and then change the view
+      this.state.timeoutValues.push(setTimeout(this.changeView.bind(this), 600))
+      // If there are selected equipment, mark them
+      if(this.props.selectedEquipment.numberOfSelected) this.markSelectedNodes()
+    })
   }
 
   componentDidMount = () => {
-    if (!this.state.network) {
-      this.setState(initializeNetwork(this.state, this.refs.visNetwork))
-      this.setState(populateNetwork(equipment, connections, connectionTypes, this.state))
-    } else {
-      this.state.network.stabilize()
-    }
-    //this.setState(addNodes(this.state))
-    this.state.network.once("stabilizationIterationsDone", () => {
-      this.state.timeoutValue = setTimeout(this.setNetworkListeners(), 500)
-    })
+    // Create the network when component is mounted
+    this.networkSetup()
   }
 
   componentWillUnmount = () => {
-    clearTimeout(this.state.timeoutValue)
+    // Map through timers and clear them all if the user exits the component
+    _.map(this.state.timeoutValues, timer => {
+      clearTimeout(timer)
+    })
   }
 
   render = () => {
