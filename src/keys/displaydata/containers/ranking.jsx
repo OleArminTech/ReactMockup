@@ -11,7 +11,7 @@ class Ranking extends Component {
     }
   }
 
-  render() {
+  render = () => {
     return (
       <div>
         Ranking

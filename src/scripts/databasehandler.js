@@ -11,10 +11,10 @@ class Databasehandler extends Component {
     }
   }
 
-  render() {
+  render = () => {
     return (
       <div>
-        
+
       </div>
     )
   }

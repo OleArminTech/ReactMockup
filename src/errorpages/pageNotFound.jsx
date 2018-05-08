@@ -4,21 +4,21 @@ import { Redirect, NavLink, withRouter } from 'react-router-dom'
 
 class PageNotFound extends Component {
 
-  componentDidMount() {
+  componentDidMount = () => {
     this.interval = setInterval(() => {
       this.handleRedirect()
     }, 5000);
   }
 
-  componentWillUnmount() {
+  componentWillUnmount = () => {
     clearInterval(this.interval)
   }
 
-  handleRedirect(event){
+  handleRedirect = (event) => {
     this.props.history.goBack()
   }
 
-  render() {
+  render = () => {
     return (
       <div>
         <h1>Error code 404: Page not found</h1>

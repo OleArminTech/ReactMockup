@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 
 class HeaderSettingsMenu extends Component {
 
-  render() {
+  render = () => {
     return (
       <span>Settings</span>
     )

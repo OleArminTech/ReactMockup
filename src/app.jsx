@@ -15,7 +15,7 @@ import PopupMenu from './keys/popupmenu/popupMenu'
 
 class App extends Component {
 
-  render() {
+  render = () => {
     return (
       <div className="container">
         <HeaderBar actions={this.props.actions} workOrder={this.props.workOrder} />

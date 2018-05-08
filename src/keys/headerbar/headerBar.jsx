@@ -8,7 +8,7 @@ import arminIcon from '../../../res/img/ArminIcon.png'
 
 class HeaderBar extends Component {
 
-  render() {
+  render = () => {
     return (
       <div className="headerBar">
         <section className="headerBarLeft">
