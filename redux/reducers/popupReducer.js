@@ -9,7 +9,7 @@ let popupReducer = function(popup = {
     case POPUP_SUBMIT:
       return {...popup, text: action.text }
     case POPUP_CLOSE:
-      return {...popup, openModal: action.payload }
+      return {...popup, openModal: "" }
     case POPUP_TYPE:
       return {...popup, openModal: action.payload }
     default:
