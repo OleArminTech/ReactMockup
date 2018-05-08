@@ -20,7 +20,7 @@ class DisplayData extends Component {
     }
   }
 
-  getContainer(){
+  getContainer = () => {
     if(this.props.location.pathname == "/ranking") {
       return <Ranking />
     } else if(this.props.location.pathname == "/history") {
@@ -32,7 +32,7 @@ class DisplayData extends Component {
     }
   }
 
-  render() {
+  render = () => {
     return (
       <div>
         { this.getContainer() }

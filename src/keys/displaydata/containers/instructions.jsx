@@ -12,7 +12,7 @@ class Instructions extends Component {
     }
   }
 
-  render() {
+  render = () => {
     return (
       <div>
         Instructions

@@ -11,10 +11,10 @@ class Users extends Component {
     }
   }
 
-  render() {
+  render = () => {
     return (
       <div>
-        
+
       </div>
     )
   }

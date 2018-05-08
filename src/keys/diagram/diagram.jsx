@@ -31,14 +31,14 @@ class Diagram extends Component {
     }
   }
 
-  changeView() {
+  changeView = () => {
     this.state.network.fit({
       nodes: [100, 200, 300, 1000, 1700, 1800, 3600, 3700, 3800],
       animation: true
     })
   }
 
-  setNetworkListeners(){
+  setNetworkListeners = () => {
     this.state.network.on("doubleClick", params => {
       if(_.includes(this.props.selectedEquipment.entities, params.nodes[0])){
         // If allready there, remove
@@ -51,7 +51,7 @@ class Diagram extends Component {
     this.state.timeoutValue = setTimeout(this.changeView.bind(this), 500)
   }
 
-  componentDidMount() {
+  componentDidMount = () => {
     if (!this.state.network) {
       this.setState(initializeNetwork(this.state, this.refs.visNetwork))
       this.setState(populateNetwork(equipment, connections, connectionTypes, this.state))
@@ -64,11 +64,11 @@ class Diagram extends Component {
     })
   }
 
-  componentWillUnmount() {
+  componentWillUnmount = () => {
     clearTimeout(this.state.timeoutValue)
   }
 
-  render() {
+  render = () => {
     return (<div className="diagram" ref="visNetwork"/>)
   }
 }

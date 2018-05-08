@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 class HeaderUserMenu extends Component {
 
-  render() {
+  render = () => {
     return (
       <span>User</span>
     )

@@ -14,16 +14,16 @@ class WorkOrder extends Component {
     }
   }
 
-  myChangeHandler(event) {
+  myChangeHandler = (event) => {
     this.setState({text: event.target.value})
   }
 
-  mySubmitHandler(event) {
+  mySubmitHandler = (event) => {
     event.preventDefault()
     this.props.actions.enterWorkOrder(this.state.text)
   }
 
-  render() {
+  render = () => {
     return (
       <div className="workorder">
         <form onSubmit={this.mySubmitHandler.bind(this)}>

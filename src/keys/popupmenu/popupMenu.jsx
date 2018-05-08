@@ -12,12 +12,12 @@ class PopupMenu extends Component {
   //     done: false
   //   }
   // }
-  closeModal(event){
+  closeModal = (event) => {
     console.log(this.props)
     this.props.actions.popupClose(false)
   }
 
-  render() {
+  render = () => {
     return (
       <div>
         <Popup

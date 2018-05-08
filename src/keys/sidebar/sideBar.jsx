@@ -15,15 +15,15 @@ class SideBar extends Component {
     }
   }
 
-  handleClearSelection(event){
+  handleClearSelection = (event) => {
     console.log("Clear Selection: WiP")
   }
 
-  openModalWithId(id, event){
+  openModalWithId = (id, event) => {
     this.props.popupType(id)
   }
 
-  render() {
+  render = () => {
     return (
       <div className="sideBar">
         <section className="selectorsGroup">

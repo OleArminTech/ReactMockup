@@ -2,7 +2,7 @@ import { applyMiddleware, compose, createStore } from 'redux'
 import logger from 'redux-logger'
 import rootReducer from './reducers/rootReducer'
 
-function saveToLocalStorage(state){
+const  saveToLocalStorage = (state) => {
   let persistantStates = {
     workOrder: state.workOrder,
     userInterface: state.userInterface,
@@ -16,7 +16,7 @@ function saveToLocalStorage(state){
   }
 }
 
-function loadFromLocalStorage() {
+const loadFromLocalStorage = () => {
   try{
     const serializedState = localStorage.getItem('state')
     if(serializedState === null) return undefined

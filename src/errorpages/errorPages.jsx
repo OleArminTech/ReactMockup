@@ -11,7 +11,7 @@ class ErrorPage extends Component {
     }
   }
 
-  render() {
+  render = () => {
     return (
       <div>
         Error page
