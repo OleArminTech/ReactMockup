@@ -134,6 +134,5 @@ export const addNodes = (state) => {
       roundness: 0.4
     }
   })
-  state.addnode = false
   return state
 }

@@ -1,12 +1,16 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import actions from '../../../redux/actions/actions'
 import _ from 'lodash'
 import vis from 'vis'
 import equipment from '../../../res/data/equipment.json'
 import connections from '../../../res/data/connections.json'
 import connectionTypes from '../../../res/data/connectionTypes.json'
 import '../../../styles/diagram.css'
-import { initializeNetwork, populateNetwork, addNodes } from '../../scripts/vis/networkFunctions'
-import { setCountdown, resetIntervals } from '../../scripts/timerFunctions'
+import { initializeNetwork, populateNetwork, addNodes } from '../../scripts/vis/diagramNetworkFunctions'
 
 class Diagram extends Component {
 
@@ -18,28 +22,70 @@ class Diagram extends Component {
       data: null,
       options: null,
       network: null,
-      addnode: false,
-      currentCount: 0
+      nodesAdded: false,
+      timeoutValue: null,
+      selectedEquipment: {
+        entities: {},
+        numberOfSelected: 0
+      }
     }
   }
 
-  changeView(){ this.state.network.fit({nodes: [10001, 10002, 10003], animation: false}) }
+  changeView() {
+    this.state.network.fit({
+      nodes: [100, 200, 300, 1000, 1700, 1800, 3600, 3700, 3800],
+      animation: true
+    })
+  }
 
-  componentDidMount(){
-    this.setState(initializeNetwork(this.state, this.refs.visNetwork))
-    this.setState(populateNetwork(equipment, connections, connectionTypes, this.state))
-    //this.state.addnode = true
+  setNetworkListeners(){
+    this.state.network.on("doubleClick", params => {
+      if(_.includes(this.props.selectedEquipment.entities, params.nodes[0])){
+        // If allready there, remove
+        this.props.actions.removeSelected(params.nodes[0])
+      }else{
+        // If not there, add
+        this.props.actions.addSelected(params.nodes[0])
+      }
+    })
+    this.state.timeoutValue = setTimeout(this.changeView.bind(this), 500)
+  }
+
+  componentDidMount() {
+    if (!this.state.network) {
+      this.setState(initializeNetwork(this.state, this.refs.visNetwork))
+      this.setState(populateNetwork(equipment, connections, connectionTypes, this.state))
+    } else {
+      this.state.network.stabilize()
+    }
     //this.setState(addNodes(this.state))
-    //setCountdown(this.changeView.bind(this), 5)
+    this.state.network.once("stabilizationIterationsDone", () => {
+      this.state.timeoutValue = setTimeout(this.setNetworkListeners(), 500)
+    })
   }
 
-  componentWillUnmount(){
-    resetIntervals() // Reset interval if user leaves
+  componentWillUnmount() {
+    clearTimeout(this.state.timeoutValue)
   }
 
-  render(){
+  render() {
     return (<div className="diagram" ref="visNetwork"/>)
   }
 }
 
-export default Diagram
+Diagram.propTypes = {
+  selectedEquipment: PropTypes.shape({
+    entities: PropTypes.object,
+    numberOfSelected: PropTypes.number
+  })
+}
+
+const mapStateToProps = (state) => {
+  return { selectedEquipment: state.selectedEquipment};
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return { actions: bindActionCreators(actions, dispatch) }
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Diagram))

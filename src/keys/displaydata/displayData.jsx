@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import actions from '../../../redux/actions/actions'
 import HistoryContainer from './containers/historyContainer'
 import Instructions from './containers/instructions'
 import Ranking from './containers/ranking'
@@ -9,9 +13,10 @@ class DisplayData extends Component {
   constructor(props, context) {
     super(props, context)
     this.state = {
-      id: 0,
-      text: 'Stuff',
-      done: false
+      selectedEquipment: {
+        entities: {},
+        numberOfSelected: 0
+      }
     }
   }
 
@@ -21,7 +26,7 @@ class DisplayData extends Component {
     } else if(this.props.location.pathname == "/history") {
       return <HistoryContainer />
     } else if(this.props.location.pathname == "/instructions") {
-      return <Instructions />
+      return <Instructions selectedEquipment={this.props.selectedEquipment} />
     } else {
       return null
     }
@@ -37,7 +42,19 @@ class DisplayData extends Component {
 }
 
 DisplayData.propTypes = {
-  pathname: PropTypes.string
+  pathname: PropTypes.string,
+  selectedEquipment: PropTypes.shape({
+    entities: PropTypes.object,
+    numberOfSelected: PropTypes.number
+  })
 }
 
-export default DisplayData
+const mapStateToProps = (state) => {
+  return { selectedEquipment: state.selectedEquipment};
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return { actions: bindActionCreators(actions, dispatch) }
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(DisplayData))

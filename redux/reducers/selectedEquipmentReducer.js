@@ -1,12 +1,18 @@
-import { GENERIC_ACTION } from '../actions/actionTypes'
+import { ADD_SELECTED_EQUIPMENT, REMOVE_SELECTED_EQUIPMENT } from '../actions/actionTypes'
 
 let selectedEquipmentReducer = function(selectedEquipment = {
-    equipment: {},
+    entities: {},
     numberOfSelected: 0
   }, action) {
   switch (action.type) {
-    case GENERIC_ACTION:
-      return {...selectedEquipment, numberOfSelected: action.text }
+    case ADD_SELECTED_EQUIPMENT:
+      return {
+        entities: { ...selectedEquipment.entities, [action.payload]: action.payload },
+        numberOfSelected: selectedEquipment.numberOfSelected + 1 }
+    case REMOVE_SELECTED_EQUIPMENT:
+      return {
+        entities: _.omit(selectedEquipment.entities, action.payload),
+        numberOfSelected: selectedEquipment.numberOfSelected - 1 }
     default:
       return selectedEquipment;
   }

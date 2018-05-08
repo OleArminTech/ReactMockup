@@ -5,9 +5,10 @@ class Instructions extends Component {
   constructor(props, context) {
     super(props, context)
     this.state = {
-      id: 0,
-      text: 'Stuff',
-      done: false
+      selectedEquipment: {
+        entities: {},
+        numberOfSelected: 0
+      }
     }
   }
 
@@ -15,6 +16,9 @@ class Instructions extends Component {
     return (
       <div>
         Instructions
+        { _.map(this.props.selectedEquipment.entities, key => {
+          return <div key={key}>{ key }</div>
+        })}
       </div>
     )
   }

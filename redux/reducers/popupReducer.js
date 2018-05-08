@@ -3,7 +3,7 @@ import { POPUP_SUBMIT, POPUP_CLOSE, POPUP_TYPE } from '../actions/actionTypes'
 let popupReducer = function(popup = {
     type: 0,
     text: "",
-    openModal: "INIT",
+    openModal: "",
   }, action) {
   switch (action.type) {
     case POPUP_SUBMIT:

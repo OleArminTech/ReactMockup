@@ -1,15 +1,15 @@
-import { GENERIC_ACTION, GENERIC_ACTION_2 } from '../actions/actionTypes'
+import { ADD_SELECTED_EQUIPMENT, REMOVE_SELECTED_EQUIPMENT } from '../actions/actionTypes'
 
-export const genericAction = (text) => {
+export const addSelected = (value) => {
   return {
-    type: GENERIC_ACTION,
-    text: text
+    type: ADD_SELECTED_EQUIPMENT,
+    payload: value
   };
 }
 
-export const genericAction2 = (text) => {
+export const removeSelected = (value) => {
   return {
-    type: GENERIC_ACTION_2,
-    text: text
+    type: REMOVE_SELECTED_EQUIPMENT,
+    payload: value
   };
 }
