@@ -24,8 +24,10 @@ class Diagram extends Component {
       network: null,
       nodesAdded: false,
       timeoutValue: null,
-      entities: null,
-      numberOfSelected: 0
+      selectedEquipment: {
+        entities: {},
+        numberOfSelected: 0
+      }
     }
   }
 
@@ -38,20 +40,15 @@ class Diagram extends Component {
 
   setNetworkListeners(){
     this.state.network.on("doubleClick", params => {
-      console.log("Node: " + params.nodes)
-      console.log("Props: " + this.props.selectedEquipment.numberOfSelected)
-      if(!_.includes(this.props.entities, params.nodes)){
-        console.log("Add node to selection")
-        this.props.actions.addSelected(params.nodes)
+      if(_.includes(this.props.selectedEquipment.entities, params.nodes[0])){
+        // If allready there, remove
+        this.props.actions.removeSelected(params.nodes[0])
       }else{
-        console.log("Allready there, remove selection")
-        this.props.actions.removeSelected(parmas.nodes)
+        // If not there, add
+        this.props.actions.addSelected(params.nodes[0])
       }
-      console.log("Selected: " + this.props.numberOfSelected)
     })
-    this.state.network.once("stabilizationIterationsDone", () => {
-      this.state.timeoutValue = setTimeout(this.changeView.bind(this), 500)
-    })
+    this.state.timeoutValue = setTimeout(this.changeView.bind(this), 500)
   }
 
   componentDidMount() {
@@ -62,7 +59,9 @@ class Diagram extends Component {
       this.state.network.stabilize()
     }
     //this.setState(addNodes(this.state))
-    this.state.nodesAdded = true
+    this.state.network.once("stabilizationIterationsDone", () => {
+      this.state.timeoutValue = setTimeout(this.setNetworkListeners(), 500)
+    })
   }
 
   componentWillUnmount() {
@@ -70,7 +69,6 @@ class Diagram extends Component {
   }
 
   render() {
-    if(this.state.nodesAdded) this.setNetworkListeners()
     return (<div className="diagram" ref="visNetwork"/>)
   }
 }
@@ -83,7 +81,7 @@ Diagram.propTypes = {
 }
 
 const mapStateToProps = (state) => {
-  return { selectedEquipment: { entities: state.entities, numberOfSelected: state.numberOfSelected }};
+  return { selectedEquipment: state.selectedEquipment};
 }
 
 const mapDispatchToProps = (dispatch) => {

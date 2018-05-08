@@ -6,13 +6,13 @@ let selectedEquipmentReducer = function(selectedEquipment = {
   }, action) {
   switch (action.type) {
     case ADD_SELECTED_EQUIPMENT:
-      let addEntities = { ...selectedEquipment.entities, [action.payload]: action.payload }
-      let addSelected = _.size(addEntities)
-      return { entities: addEntities, numberOfSelected: addSelected }
+      return {
+        entities: { ...selectedEquipment.entities, [action.payload]: action.payload },
+        numberOfSelected: selectedEquipment.numberOfSelected + 1 }
     case REMOVE_SELECTED_EQUIPMENT:
-      let removeEntities = _.omit(selectedEquipment.entities, action.payload)
-      let removeSelected = _.size(removeEntities)
-      return { entities: removeEntities, numberOfSelected: removeSelected }
+      return {
+        entities: _.omit(selectedEquipment.entities, action.payload),
+        numberOfSelected: selectedEquipment.numberOfSelected - 1 }
     default:
       return selectedEquipment;
   }
