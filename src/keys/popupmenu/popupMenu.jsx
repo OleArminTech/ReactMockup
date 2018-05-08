@@ -2,33 +2,92 @@ import React, { Component } from 'react'
 import Popup from 'reactjs-popup'
 import PropTypes from 'prop-types'
 
+
+import PopupConfirmation from './containers/popupConfirmation'
+import PopupFind from './containers/popupFind'
+import PopupFilter from './containers/popupFilter'
+import PopupPath from './containers/PopupPath'
+import PopupOffset from './containers/popupOffset'
+
 class PopupMenu extends Component {
 
-  // constructor(props, context) {
-  //   super(props, context)
-  //   this.state = {
-  //     id: 0,
-  //     text: 'Stuff',
-  //     done: false
-  //   }
-  // }
+  acceptModal(event){
+    console.log("Modal Pressed: Accept;")
+  }
+
   closeModal(event){
-    console.log(this.props)
+    console.log("Modal Pressed: Close;")
+  }
+
+  exitModal(event){
+    console.log("Modal Exited;")
     this.props.actions.popupClose(false)
+  }
+
+  modalSwitch(type){
+    switch(type) {
+        case "MODAL_FIND":
+            return (
+              <PopupFind popup={this.props.popup} actions={this.props.actions}/>
+            )
+        case "MODAL_FILTER":
+            return (
+              <PopupFilter popup={this.props.popup} actions={this.props.actions}/>
+            )
+        case "MODAL_OFFSET":
+            return (
+              <PopupOffset popup={this.props.popup} actions={this.props.actions}/>
+            )
+
+        case "MODAL_PATH":
+            return (
+              <PopupPath popup={this.props.popup} actions={this.props.actions}/>
+            )
+        default:
+            return <div>D</div>;
+    }
   }
 
   render() {
     return (
-      <div>
+      <div className="Modal">
         <Popup
           modal
-          defaultOpen = {true}
-          closeOnDocumentClick = {false}
+          open
+          onClose={this.exitModal.bind(this)}
         >
-          <span>
-            <div>This is a Modal</div>
-            <button onClick={this.closeModal.bind(this)}>Close</button>
-          </span>
+          {close => (
+            <div className="modal">
+              {/* Small X in crner */}
+              <a className="close" onClick={close}>
+                &times;
+              </a>
+
+              {this.modalSwitch(this.props.popup.openModal)}
+
+              <div className="actions">
+                <button
+                  className="buttonCancel"
+                  onClick={() => {
+                    console.log("Modal Cancel")
+                    close()
+                  }}
+                >
+                  Cancel
+                </button>
+
+                <button
+                  className="buttonAccept"
+                  onClick={() => {
+                    console.log("Modal Accept")
+                    close()
+                  }}
+                >
+                  Accept
+                </button>
+            </div>
+            </div>
+          )}
         </Popup>
       </div>
     )
@@ -39,6 +98,9 @@ class PopupMenu extends Component {
 PopupMenu.propTypes = {
   popup: PropTypes.shape({
     openModal: PropTypes.string
+  }),
+  actions: PropTypes.shape({
+    popupClose: PropTypes.func
   })
 }
 

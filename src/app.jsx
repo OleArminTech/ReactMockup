@@ -20,7 +20,9 @@ class App extends Component {
       <div className="container">
         <HeaderBar actions={this.props.actions} workOrder={this.props.workOrder} />
         <div className="content">
-          {this.props.popup.openModal && <PopupMenu popup={this.props.popup} actions={this.props.actions}/>}
+          {this.props.popup.openModal && 
+          <PopupMenu popup={this.props.popup} actions={this.props.actions}/>
+          }
           <SideBar popupType={this.props.actions.popupType}/>
           <div className="modules">
             <Switch>
