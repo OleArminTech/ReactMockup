@@ -3,6 +3,7 @@ import connectionsReducer from './connectionsReducer'
 import connectionTypesReducer from './connectionTypesReducer'
 import customerReducer from './customerReducer'
 import datasetsReducer from './datasetsReducer'
+import diagramReducer from './diagramReducer'
 import displayDataReducer from './displayDataReducer'
 import equipmentDegradationReducer from './equipmentDegradationReducer'
 import equipmentReducer from './equipmentReducer'
@@ -19,6 +20,7 @@ export default combineReducers({
   connectionTypes: connectionTypesReducer,
   customer: customerReducer,
   datasets: datasetsReducer,
+  diagram: diagramReducer,
   displayData: displayDataReducer,
   equipmentDegradation: equipmentDegradationReducer,
   equipment: equipmentReducer,

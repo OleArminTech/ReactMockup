@@ -1,8 +1,12 @@
 import React, { Component } from 'react'
-import { NavLink } from 'react-router-dom'
+import { withRouter, NavLink } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import actions from '../../../redux/actions/actions'
 import arminIcon from '../../../res/img/ArminIcon.png'
 import '../../../styles/sideBar.css'
 import PropTypes from 'prop-types'
+import DiagramSubmenuContainer from './containers/diagramSubmenuContainer'
 
 class SideBar extends Component {
 
@@ -46,9 +50,7 @@ class SideBar extends Component {
           <NavLink to="/workorder">   <img src={arminIcon} /><span>Work order</span></NavLink>
         </section>
         <hr />
-        <section className="diagramSubmenuGroup">
-          {/* SUBMENUS HERE */}
-        </section>
+        { this.props.location.pathname == "/diagram" && <DiagramSubmenuContainer actions={this.props.actions} diagram={this.props.diagram}/> }
       </div>
     )
   }
@@ -59,4 +61,12 @@ SideBar.propTypes = {
   popupType: PropTypes.func
 }
 
-export default SideBar
+const mapStateToProps = (state) => {
+  return { selectedEquipment: state.selectedEquipment, diagram: state.diagram };
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return { actions: bindActionCreators(actions, dispatch) }
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SideBar))

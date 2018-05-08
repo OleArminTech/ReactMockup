@@ -28,7 +28,13 @@ class Diagram extends Component {
       selectedEquipment: {
         entities: {},
         numberOfSelected: 0
-      }
+      },
+      diagram: {
+        skidCollapsed: false,
+        skidShown: false,
+        euipmentDetailShown: false,
+        cluster: ''
+        }
     }
   }
 
@@ -85,10 +91,33 @@ class Diagram extends Component {
       // Wait 500ms and then set listeners
       this.state.timeoutValues.push(setTimeout(this.setNetworkListeners.bind(this), 500))
       // Wait 600ms and then change the view
-      this.state.timeoutValues.push(setTimeout(this.changeView.bind(this), 600))
+      //this.state.timeoutValues.push(setTimeout(this.changeView.bind(this), 600))
       // If there are selected equipment, mark them
       if(this.props.selectedEquipment.numberOfSelected) this.markSelectedNodes()
     })
+  }
+
+  collapseSkid = () => {
+    if(this.props.diagram.skidCollapsed){
+      let clusterOptionsByData = {
+        joinCondition:function(childOptions) {
+            return childOptions.skid == "Storage Tank 2";
+        },
+        clusterNodeProperties: {id:'skidCluster', label: 'Storage Tank 2', shape:'box'}
+      }
+      this.state.network.cluster(clusterOptionsByData)
+    }else{
+      this.state.network.openCluster('skidCluster')
+    }
+    this.state.network.stabilize()
+  }
+
+  showSkid = () => {
+    console.log("Show skid")
+  }
+
+  showEquipmentDetail = () => {
+    console.log("Show Eq detail")
   }
 
   componentDidMount = () => {
@@ -103,6 +132,23 @@ class Diagram extends Component {
     })
   }
 
+  componentDidUpdate = (prevProps) => {
+    if(prevProps.diagram.skidCollapsed != this.props.diagram.skidCollapsed){
+      console.log("Collapse skid changed, update cluster")
+      this.collapseSkid()
+    }
+    if(prevProps.diagram.skidShown != this.props.diagram.skidShown){
+      console.log("Show skid changed, update cluster")
+      this.showSkid()
+    }
+    if(prevProps.diagram.euipmentDetailShown != this.props.diagram.euipmentDetailShown){
+      console.log("Show Eq detail changed, update cluster")
+      this.showEquipmentDetail()
+    }
+
+
+  }
+
   render = () => {
     return (<div className="diagram" ref="visNetwork"/>)
   }
@@ -112,11 +158,17 @@ Diagram.propTypes = {
   selectedEquipment: PropTypes.shape({
     entities: PropTypes.object,
     numberOfSelected: PropTypes.number
+  }),
+  selectedEquipment: PropTypes.shape({
+    skidCollapsed: PropTypes.bool,
+    skidShown: PropTypes.bool,
+    euipmentDetailShown: PropTypes.bool,
+    cluster: PropTypes.string
   })
 }
 
 const mapStateToProps = (state) => {
-  return { selectedEquipment: state.selectedEquipment};
+  return { selectedEquipment: state.selectedEquipment, diagram: state.diagram };
 }
 
 const mapDispatchToProps = (dispatch) => {

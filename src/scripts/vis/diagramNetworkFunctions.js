@@ -73,7 +73,8 @@ export const populateNetwork = (equipment, connections, connectionTypes, state) 
     state.nodes.add({
       id: key.equipmentID,
       label: key.componentID + '\n<b>' + key.equipmentName + '</b>\n<i>' + key.skidID + '</i>',
-      title: key.equipmentID
+      title: key.equipmentID,
+      skid: key.skidID
     })
   })
 
