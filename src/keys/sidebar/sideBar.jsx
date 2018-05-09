@@ -19,19 +19,19 @@ class SideBar extends Component {
     console.log("Clear Selection: WiP")
   }
 
-  openModalWithId = (id, event) => {
-    this.props.popupType(id)
+  openModalWithId = (event) => {
+    this.props.popupType(event.target.id)
   }
 
   render = () => {
     return (
       <div className="sideBar">
         <section className="selectorsGroup">
-          <a href="#" onClick={this.openModalWithId.bind(this, "MODAL_FIND")}>             <img src={arminIcon} /> <span>Find</span>  </a>
-          <a href="#" onClick={this.openModalWithId.bind(this, "MODAL_FILTER")}>           <img src={arminIcon} /> <span>Filter</span>  </a>
-          <a href="#" onClick={this.openModalWithId.bind(this, "MODAL_PATH")}>             <img src={arminIcon} /> <span>Path</span>  </a>
-          <a href="#" onClick={this.openModalWithId.bind(this, "MODAL_OFFSET")}>           <img src={arminIcon} /> <span>Offset</span>  </a>
-          <a href="#" onClick={this.handleClearSelection.bind(this)}>           <img src={arminIcon} /> <span>Clear Selection</span>  </a>
+          <a href="#" id="MODAL_FIND"   onClick={this.openModalWithId.bind(this)}><img src={arminIcon} /> <span>Find</span>  </a>
+          <a href="#" id="MODAL_FILTER" onClick={this.openModalWithId.bind(this)}><img src={arminIcon} /> <span>Filter</span>  </a>
+          <a href="#" id="MODAL_PATH"   onClick={this.openModalWithId.bind(this)}><img src={arminIcon} /> <span>Path</span>  </a>
+          <a href="#" id="MODAL_OFFSET" onClick={this.openModalWithId.bind(this)}><img src={arminIcon} /> <span>Offset</span>  </a>
+          <a href="#" onClick={this.handleClearSelection.bind(this)}><img src={arminIcon} /> <span>Clear Selection</span>  </a>
 
         </section>
         <hr />

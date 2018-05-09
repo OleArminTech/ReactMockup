@@ -1,9 +1,8 @@
-import { POPUP_SUBMIT, POPUP_CLOSE, POPUP_TYPE} from '../actions/actionTypes'
+import { POPUP_SUBMIT, POPUP_CLOSE, POPUP_TYPE, POPUP_TEXTBOX_TOGGLE} from '../actions/actionTypes'
 
 export const popupSubmit = (text) => {
   return {
     type: POPUP_SUBMIT,
-    text: text
   }
 }
 
@@ -24,6 +23,13 @@ export const popupConfirm = (value) => {
 export const popupType = (value) => {
   return {
     type: POPUP_TYPE,
+    payload: value
+  }
+}
+
+export const toggleCheckBox = (value) => {
+  return {
+    type: POPUP_TEXTBOX_TOGGLE,
     payload: value
   }
 }
