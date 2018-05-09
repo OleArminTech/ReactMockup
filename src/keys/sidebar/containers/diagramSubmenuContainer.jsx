@@ -23,7 +23,7 @@ class DiagramSubmenuContainer extends Component {
   }
 
   showSkid = () => {
-    this.setState({ skidCollapsed: !this.props.diagram.skidShown })
+    this.setState({ skidShown: !this.props.diagram.skidShown })
     this.props.actions.showSkid(!this.props.diagram.skidShown)
   }
 

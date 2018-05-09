@@ -23,3 +23,5 @@ export const NODE_COLOR_SELECTED = {
     background: '#00c8c8'
   }
 }
+
+export const CLUSTER_NAME = 'skidCluster'
