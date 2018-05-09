@@ -2,7 +2,7 @@ import { DIAGRAM_COLLAPSE_SKID_TOGGLE,
   DIAGRAM_SHOW_SKID_TOGGLE,
   DIAGRAM_SHOW_EQUIPMENT_DETAILS,
   DIAGRAM_CLUSTER_SELECTED_TOGGLE,
-  DIAGRAM_SET_CLUSTER } from '../actions/actionTypes'
+  DIAGRAM_SET_CLUSTER} from '../actions/actionTypes'
 
 export const collapseSkid = (payload) => {
   return {

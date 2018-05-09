@@ -82,16 +82,24 @@ class Diagram extends Component {
           // All nodes are selected, and has previously been marked selected as a cluster
           // This means the user want to unselect with this doubleclick
 
+          // To prevent overload on reducers and action creators we store IDs and update in one go
+          let nodesToUnselect = {}
           // Map trough all the nodes in the cluster and unselect them individually
           _.map(clusterNodes, node => {
             // Check if the node is selected, and unselect it
-            if(!_.includes(this.props.selectedEquipment.entities, node.id)){
-              this.props.actions.removeSelected(node.id)
+            if(_.includes(this.props.selectedEquipment.entities, node)){
+              // Store node to be unselected
+              nodesToUnselect = { ...nodesToUnselect, [node]: node }
+              // Get the node with the ID
+              let selectedNode = this.state.nodes.get(node)
               // Change the color and update the network
-              node.color = NODE_COLOR_DEFAULT
-              this.state.nodes.update(node)
+              selectedNode.color = NODE_COLOR_DEFAULT
+              this.state.nodes.update(selectedNode)
             }
           })
+          // Update global store with nodes to be unselected
+          this.props.actions.removeGroup(nodesToUnselect, _.size(nodesToSelect))
+          // Set unselected mark and update global store for the cluster
           this.state.network.clustering.updateClusteredNode(this.props.diagram.cluster, {
             color: {
               border: '#1e1e1e',
@@ -106,6 +114,7 @@ class Diagram extends Component {
               }
             }
           })
+          this.props.actions.selectCluster(false)
         } else if (clusterSelected && !this.props.diagram.clusterSelected){
           // All nodes are selected, but it's previously not been set
           // This should not happen, as there should be a check on clustering
@@ -120,16 +129,25 @@ class Diagram extends Component {
           // Not all nodes selected, and the cluster is not marked as selected either
           // This means all nodes, plus the cluster, should be marked as selected
 
+          // To prevent overload on reducers and action creators we store IDs and update in one go
+          let nodesToSelect = {}
           // Map trough all the nodes in the cluster and select them individually
           _.map(clusterNodes, node => {
             // Check if the node is allready selected, add it to selected if not
-            if(!_.includes(this.props.selectedEquipment.entities, node.id)){
-              this.props.actions.addSelected(node.id)
+            if(!_.includes(this.props.selectedEquipment.entities, node)){
+              // Store node to be selected
+              nodesToSelect = { ...nodesToSelect, [node]: node }
+              // Get the node with the ID
+              let selectedNode = this.state.nodes.get(node)
               // Change the color and update the network
-              node.color = NODE_COLOR_SELECTED
-              this.state.nodes.update(node)
+              selectedNode.color = NODE_COLOR_SELECTED
+              this.state.nodes.update(selectedNode)
             }
           })
+          // Update global store with nodes to be selected
+          console.log()
+          this.props.actions.addGroup(nodesToSelect, _.size(nodesToSelect))
+          // Set slection mark and update global store for the cluster
           this.state.network.clustering.updateClusteredNode(this.props.diagram.cluster, {
             color: {
               border: '#00afaf',
@@ -144,11 +162,8 @@ class Diagram extends Component {
               }
             }
           })
+          this.props.actions.selectCluster(true)
         }
-
-
-
-
       } else {
         console.log("Node: " + params.nodes[0])
         // Save the selected node to perform updates
@@ -198,7 +213,6 @@ class Diagram extends Component {
         this.state.timeoutValues.push(setTimeout(this.showSkid.bind(this), 500))
       }
     })
-    console.log(this.state.network.clustering)
   }
 
   collapseSkid = () => {
