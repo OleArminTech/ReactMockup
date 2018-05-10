@@ -15,15 +15,15 @@ let selectedEquipmentReducer = function(selectedEquipment = {
     case ADD_GROUP_EQUIPMENT:
       return {
         entities: { ...selectedEquipment.entities, ...action.payload },
-        numberOfSelected: selectedEquipment.numberOfSelected + actions.selected }
+        numberOfSelected: selectedEquipment.numberOfSelected + action.selected }
     case REMOVE_SELECTED_EQUIPMENT:
       return {
         entities: _.omit(selectedEquipment.entities, action.payload),
         numberOfSelected: selectedEquipment.numberOfSelected - 1 }
     case REMOVE_GROUP_EQUIPMENT:
       return {
-        entities: _.omit(selectedEquipment.entities, ...action.payload),
-        numberOfSelected: selectedEquipment.numberOfSelected - actions.selected }
+        entities: _.omit(selectedEquipment.entities, action.payload),
+        numberOfSelected: selectedEquipment.numberOfSelected - action.selected }
     default:
       return selectedEquipment;
   }

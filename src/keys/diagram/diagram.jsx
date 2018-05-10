@@ -11,7 +11,7 @@ import connections from '../../../res/data/connections.json'
 import connectionTypes from '../../../res/data/connectionTypes.json'
 import '../../../styles/diagram.css'
 import { initializeNetwork, populateNetwork, addNodes } from '../../scripts/vis/diagramNetworkFunctions'
-import { NODE_COLOR_DEFAULT, NODE_COLOR_SELECTED, CLUSTER_NAME } from '../../elements/diagramConstants'
+import { NODE_COLOR_DEFAULT, NODE_COLOR_SELECTED, CLUSTER_NAME, SKID_NAME } from '../../elements/diagramConstants'
 
 class Diagram extends Component {
 
@@ -39,7 +39,9 @@ class Diagram extends Component {
   }
 
   changeView = (fitNodes) => {
-    // Moves the camera to fit the skid "Storage Tank 2"
+    console.log("Fit")
+    console.log(fitNodes)
+    // Moves the camera to fit the supplied nodes
     this.state.network.fit({
       nodes: fitNodes,
       animation: true
@@ -58,6 +60,13 @@ class Diagram extends Component {
     this.state.nodes.update(selectedNodes)
   }
 
+  markCluster = (color) => {
+    console.log(this.props.diagram.cluster)
+    this.state.network.clustering.updateClusteredNode(this.props.diagram.cluster, {
+      color: color
+    })
+  }
+
   setNetworkListeners = () => {
     // On doubleclick, either select or unselect equipment node
     this.state.network.on("doubleClick", params => {
@@ -65,31 +74,23 @@ class Diagram extends Component {
       if(this.state.network.isCluster(params.nodes[0])){
         console.log("Cluster: " + params.nodes[0])
 
-        // Get all the nodes in the cluster
+        // Get all nodes in the cluster
         let clusterNodes = this.state.network.getNodesInCluster(this.props.diagram.cluster)
-        let clusterSelected = true
-        // Check if all cluster nodes are selected
-        _.map(clusterNodes, node => {
-          if(_.includes(this.props.selectedEquipment.entities, node)){
-             console.log("Node found: " + node)
-          } else {
-             console.log("Node not found: " + node)
-             clusterSelected = false
-          }
-        })
-        console.log("Selected: " + clusterSelected)
+        // Check if all nodes in the cluster are selected or not
+        let clusterSelected = this.isAllNodesInClusterSelected(this.props.diagram.cluster)
+        // Take action based on if the nodes are selected and or if the cluster is selected or not
         if(clusterSelected && this.props.diagram.clusterSelected){
           // All nodes are selected, and has previously been marked selected as a cluster
           // This means the user want to unselect with this doubleclick
 
           // To prevent overload on reducers and action creators we store IDs and update in one go
-          let nodesToUnselect = {}
+          let nodesToUnselect = []
           // Map trough all the nodes in the cluster and unselect them individually
           _.map(clusterNodes, node => {
             // Check if the node is selected, and unselect it
             if(_.includes(this.props.selectedEquipment.entities, node)){
-              // Store node to be unselected
-              nodesToUnselect = { ...nodesToUnselect, [node]: node }
+              // Store node to be unselected, need to be array for the omit-function in reducer
+              nodesToUnselect.push(node)
               // Get the node with the ID
               let selectedNode = this.state.nodes.get(node)
               // Change the color and update the network
@@ -98,22 +99,9 @@ class Diagram extends Component {
             }
           })
           // Update global store with nodes to be unselected
-          this.props.actions.removeGroup(nodesToUnselect, _.size(nodesToSelect))
+          this.props.actions.removeGroup(nodesToUnselect, _.size(nodesToUnselect))
           // Set unselected mark and update global store for the cluster
-          this.state.network.clustering.updateClusteredNode(this.props.diagram.cluster, {
-            color: {
-              border: '#1e1e1e',
-              background: '#ffffff',
-              highlight: {
-                border: '#2B7CE9',
-                background: '#D2E5FF'
-              },
-              hover: {
-                border: '#2B7CE9',
-                background: '#D2E5FF'
-              }
-            }
-          })
+          this.markCluster(NODE_COLOR_DEFAULT)
           this.props.actions.selectCluster(false)
         } else if (clusterSelected && !this.props.diagram.clusterSelected){
           // All nodes are selected, but it's previously not been set
@@ -135,7 +123,7 @@ class Diagram extends Component {
           _.map(clusterNodes, node => {
             // Check if the node is allready selected, add it to selected if not
             if(!_.includes(this.props.selectedEquipment.entities, node)){
-              // Store node to be selected
+              // Store node to be selected, needs to be key: value pair for the reducer
               nodesToSelect = { ...nodesToSelect, [node]: node }
               // Get the node with the ID
               let selectedNode = this.state.nodes.get(node)
@@ -145,23 +133,9 @@ class Diagram extends Component {
             }
           })
           // Update global store with nodes to be selected
-          console.log()
           this.props.actions.addGroup(nodesToSelect, _.size(nodesToSelect))
           // Set slection mark and update global store for the cluster
-          this.state.network.clustering.updateClusteredNode(this.props.diagram.cluster, {
-            color: {
-              border: '#00afaf',
-              background: '#00ff96',
-              highlight: {
-                border: '#0000ff',
-                background: '#00c8c8'
-              },
-              hover: {
-                border: '#0000ff',
-                background: '#00c8c8'
-              }
-            }
-          })
+          this.markCluster(NODE_COLOR_SELECTED)
           this.props.actions.selectCluster(true)
         }
       } else {
@@ -207,6 +181,11 @@ class Diagram extends Component {
       if(this.props.diagram.skidCollapsed && !this.state.diagram.skidCollapsed){
         // Skid marked as collapsed from previous mount, collapse it
         this.state.timeoutValues.push(setTimeout(this.collapseSkid.bind(this), 500))
+        // Mark the cluster as selected if it was selected in the previous mount
+        if(this.props.diagram.clusterSelected){
+          console.log("Cluster allready selected, mark it")
+          this.state.timeoutValues.push(setTimeout(this.markCluster.bind(this), 600, NODE_COLOR_SELECTED))
+        }
       }
       if(this.props.diagram.skidShown && !this.state.diagram.skidShown){
         // Skid marked as shown from previous mount, show it
@@ -215,23 +194,79 @@ class Diagram extends Component {
     })
   }
 
+  isAllNodesInClusterSelected = (cluster) => {
+    // Get all the nodes in the cluster
+    let clusterNodes = this.state.network.getNodesInCluster(cluster)
+    let clusterSelected = true
+    // Check if all cluster nodes are selected, if not make the value false
+    _.map(clusterNodes, node => {
+      if(!_.includes(this.props.selectedEquipment.entities, node)){
+         clusterSelected = false
+      }
+    })
+    return clusterSelected
+  }
+
+  getConnectedNodesFromCluster = (cluster) => {
+    // Find the cluster nodes
+    let clusterNodes = this.state.network.getNodesInCluster(cluster)
+    // Return nodes directly connected to each node
+    return this.getConnectedNodesFromGroup(clusterNodes)
+  }
+
+  getConnectedNodesFromSkid = (skid) => {
+    skidNodes = this.getSkidNodeIds(skid)
+     // Return the nodes connected to the skid nodes
+    return this.getConnectedNodesFromGroup(skidNodes)
+  }
+
+  getConnectedNodesFromGroup = (nodes) => {
+    let connectedNodes = []
+    _.map(nodes, node => {
+      // Add connected nodes to the array without duplicates
+      connectedNodes = _.union(connectedNodes, this.state.network.getConnectedNodes(node))
+    })
+    // Remove the original nodes from the list, send only connected
+    return _.difference(connectedNodes, nodes)
+  }
+
   collapseSkid = () => {
     if(this.props.diagram.skidCollapsed){
       let clusterOptionsByData = {
         joinCondition:function(childOptions) {
-            return childOptions.skid == "Storage Tank 2";
+            return childOptions.skid == SKID_NAME;
         },
-        clusterNodeProperties: {id:this.props.diagram.cluster, label: 'Storage Tank 2', shape:'box'}
+        clusterNodeProperties: {id: this.props.diagram.cluster, label: SKID_NAME, shape:'box'}
       }
       this.state.network.cluster(clusterOptionsByData)
-      //this.state.timeoutValues.push(setTimeout(this.changeView.bind(this), 600, this.props.diagram.cluster))
-      //console.log(this.state.network.cluster)
+      // If all nodes in the skid is selected, select the cluster and mark it
+      if(this.isAllNodesInClusterSelected(this.props.diagram.cluster)){
+        this.markCluster(NODE_COLOR_SELECTED)
+        // Set the cluster as selected if it isn't allready
+        if(!this.props.diagram.clusterSelected) this.props.actions.selectCluster(true)
+      } else {
+        // If the nodes aren't all selected, check if the cluster is and unselect it if it is selected
+        if(this.props.diagram.clusterSelected) this.props.actions.selectCluster(false)
+      }
+      /* Fit view to the cluster:
+      * This was a bit fiddly, as the nodes are not technically there when clustered.
+      * Also we can't use the cluster as a node for a view fit...
+      * We need to get all nodes in the cluster, and then finding the connected nodes
+      * for each node, store them in an array, and fit the view to these nodes.
+      * In the end it works out for the better, as we get a better view of the cluster
+      */
+
+      // Find nodes directly connected to the cluster
+      let fitNodes = this.getConnectedNodesFromCluster(this.props.diagram.cluster)
+      // Wait for the network to stabilize, and then fit the view
+      this.state.network.once("stabilizationIterationsDone", () => {
+        this.changeView(fitNodes)
+      })
     }else{
       this.state.network.openCluster(this.props.diagram.cluster)
       this.state.timeoutValues.push(setTimeout(this.changeView.bind(this), 2000, this.state.nodes.getIds()))
     }
     this.state.network.stabilize()
-
   }
 
   delayedNodesHide = (hideNode) => {
@@ -244,6 +279,14 @@ class Diagram extends Component {
     this.state.nodes.update(hideNode)
   }
 
+  getSkidNodeIds = (skid) => {
+    let skidNodes = []
+    _.map(equipment.entities, key => {
+      if(key.skidID == SKID_NAME) skidNodes.push(key.equipmentID)
+    })
+    return skidNodes
+  }
+
   showSkid = () => {
     if(this.props.diagram.skidShown){
       // Map trough nodes and set all hidden except those in the skid
@@ -252,7 +295,15 @@ class Diagram extends Component {
           this.state.timeoutValues.push(setTimeout(this.delayedNodesHide, node.id / 10, node))
         }
       })
-      this.state.timeoutValues.push(setTimeout(this.changeView.bind(this), 2000, [100, 200, 300, 1000, 1700, 1800, 3600, 3700, 3800]))
+      let fitNodes = []
+      if(this.props.diagram.skidCollapsed){
+        // If the skid is collapsed, fit the view to the cluster
+        fitNodes = this.getConnectedNodesFromCluster(this.props.diagram.cluster)
+      } else {
+        // If it's not collapsed, fit to the nodes in the skid
+        fitNodes = this.getSkidNodeIds(SKID_NAME)
+      }
+      this.state.timeoutValues.push(setTimeout(this.changeView.bind(this), 2000, fitNodes))
     } else {
       // Map trough nodes and set all visible (except those in the skid who is allready visible)
       _.map(this.state.nodes._data, node => {
@@ -262,7 +313,6 @@ class Diagram extends Component {
       })
       this.state.timeoutValues.push(setTimeout(this.changeView.bind(this), 2000, this.state.nodes.getIds()))
     }
-
   }
 
   showEquipmentDetail = () => {
@@ -294,8 +344,6 @@ class Diagram extends Component {
       console.log("Show Eq detail changed, update cluster")
       this.showEquipmentDetail()
     }
-
-
   }
 
   render = () => {
@@ -308,7 +356,7 @@ Diagram.propTypes = {
     entities: PropTypes.object,
     numberOfSelected: PropTypes.number
   }),
-  selectedEquipment: PropTypes.shape({
+  diagram: PropTypes.shape({
     skidCollapsed: PropTypes.bool,
     skidShown: PropTypes.bool,
     euipmentDetailShown: PropTypes.bool,

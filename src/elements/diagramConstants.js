@@ -25,3 +25,4 @@ export const NODE_COLOR_SELECTED = {
 }
 
 export const CLUSTER_NAME = 'skidCluster'
+export const SKID_NAME = 'Storage Tank 2'
