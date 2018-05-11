@@ -4,20 +4,27 @@ import PropTypes from 'prop-types'
 
 class PopupFilter extends Component {
 
-  confirmModal(event){
+  confirmModal = (event) => {
     console.log("MODAL_FILTER Pressed: Accept;")
   }
 
-  cancelModal(event){
+  cancelModal = (event) => {
     console.log("MODAL_FILTER Pressed: Close;")
   }
 
-  exitModal(event){
+  exitModal = (event) => {
     console.log("MODAL_FILTER Exited;")
     this.props.actions.popupConfirm(false)
+
+
   }
 
-  render() {
+  handleCheckBox = (event) => {
+    console.log(event.target.type, event.target.id, "toggled")
+    this.props.actions.toggleCheckBox(event.target.id)
+  }
+
+  render = () => {
     return (
       <div className="popupModalFilter">
         <Popup
@@ -29,8 +36,13 @@ class PopupFilter extends Component {
         >
           {close => (
             <div className="modal">
-              <span>MODAL_FIND:</span>
-              <div className="actions">
+              <span>Filter:</span>
+              <input id="1" type="checkbox" onClick={this.handleCheckBox.bind(this)}></input>
+              <input id="2" type="checkbox" onClick={this.handleCheckBox.bind(this)}></input>
+              <input id="3" type="checkbox" onClick={this.handleCheckBox.bind(this)}></input>
+              <input id="4" type="checkbox" onClick={this.handleCheckBox.bind(this)}></input>
+              <input id="5" type="checkbox" onClick={this.handleCheckBox.bind(this)}></input>
+              <div className="content">
                 <button
                   className="buttonCancel"
                   onClick={() => {
@@ -50,7 +62,7 @@ class PopupFilter extends Component {
                 >
                   Accept
                 </button>
-            </div>
+              </div>
             </div>
           )}
         </Popup>
