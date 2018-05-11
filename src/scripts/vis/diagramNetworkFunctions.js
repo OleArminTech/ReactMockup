@@ -1,4 +1,6 @@
 import vis from 'vis'
+import _ from 'lodash'
+import { NODE_COLOR_DEFAULT } from '../../elements/diagramConstants'
 
 export const initializeNetwork = (state, path) => {
   // create an array for nodes
@@ -26,14 +28,14 @@ export const initializeNetwork = (state, path) => {
         minimum: 60,
         valign: 'middle'
       },
-      color: {
-        background: 'rgb(255,255,255)',
-        border: 'rgb(30,30,30)'
-      },
+      color: NODE_COLOR_DEFAULT,
       font: {
         multi: true
       },
-      shadow: true
+      shadow: true,
+      chosen: {
+        label: false
+      }
     },
     "edges": {
       "arrows": "to",
@@ -47,7 +49,8 @@ export const initializeNetwork = (state, path) => {
     interaction: {
       multiselect: false,
       navigationButtons: true,
-      hover: true
+      hover: true,
+      hideEdgesOnDrag: true // Prevents lag when there is a lot of edges
     },
     physics: {
       enabled: false,
@@ -70,7 +73,8 @@ export const populateNetwork = (equipment, connections, connectionTypes, state) 
     state.nodes.add({
       id: key.equipmentID,
       label: key.componentID + '\n<b>' + key.equipmentName + '</b>\n<i>' + key.skidID + '</i>',
-      title: key.equipmentID
+      title: key.equipmentID,
+      skid: key.skidID
     })
   })
 
