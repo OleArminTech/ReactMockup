@@ -1,19 +1,25 @@
 import React, { Component } from 'react'
 import Popup from 'reactjs-popup'
 import PropTypes from 'prop-types'
+import Offset from '../components/offset'
 
 class PopupOffset extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { open: true };
+  }
 
-  confirmModal = (event) => {
+  acceptModal = (event) => {
     console.log("MODAL_OFFSET Pressed: Accept;")
+    this.setState({ open: false })
   }
 
   cancelModal = (event) => {
     console.log("MODAL_OFFSET Pressed: Close;")
+    this.setState({ open: false })
   }
 
   exitModal = (event) => {
-    console.log("MODAL_OFFSET Exited;")
     this.props.actions.popupConfirm(false)
   }
 
@@ -22,37 +28,18 @@ class PopupOffset extends Component {
       <div className="popupModalOffset">
         <Popup
           modal
-          open
+          open = {this.state.open}
           closeOnDocumentClick = {false}
           closeOnEscape = {false}
-          onClose={this.exitModal.bind(this)}
+          onClose = {this.exitModal.bind(this)}
         >
           {close => (
-            <div className="modal">
-              <span>MODAL_OFFSET:</span>
-              <div className="actions">
-                <button
-                  className="buttonCancel"
-                  onClick={() => {
-                    this.cancelModal.bind(this)
-                    close()
-                  }}
-                >
-                  Cancel
-                </button>
-
-                <button
-                  className="buttonAccept"
-                  onClick={() => {
-                    this.confirmModal.bind(this)
-                    close()
-                  }}
-                >
-                  Accept
-                </button>
-            </div>
-            </div>
+            <Offset
+              acceptModal = {this.acceptModal}
+              cancelModal = {this.cancelModal}
+            />
           )}
+
         </Popup>
       </div>
     )
