@@ -4,20 +4,20 @@ import PropTypes from 'prop-types'
 
 class PopupFind extends Component {
 
-  confirmModal(event){
+  confirmModal = (event) => {
     console.log("MODAL_FIND Pressed: Accept;")
   }
 
-  cancelModal(event){
+  cancelModal = (event) => {
     console.log("MODAL_FIND Pressed: Close;")
   }
 
-  exitModal(event){
+  exitModal = (event) => {
     console.log("MODAL_FIND Exited;")
     this.props.actions.popupConfirm(false)
   }
 
-  render() {
+  render = () => {
     return (
       <div className="popupModalFind">
         <Popup

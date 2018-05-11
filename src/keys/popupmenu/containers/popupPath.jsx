@@ -4,20 +4,20 @@ import PropTypes from 'prop-types'
 
 class PopupPath extends Component {
 
-  confirmModal(event){
+  confirmModal = (event) => {
     console.log("MODAL_PATH Pressed: Accept;")
   }
 
-  cancelModal(event){
+  cancelModal = (event) => {
     console.log("MODAL_PATH Pressed: Close;")
   }
 
-  exitModal(event){
+  exitModal = (event) => {
     console.log("MODAL_PATH Exited;")
     this.props.actions.popupConfirm(false)
   }
 
-  render() {
+  render = () => {
     return (
       <div className="popupModalPath">
         <Popup

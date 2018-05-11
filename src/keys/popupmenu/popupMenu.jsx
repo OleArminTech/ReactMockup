@@ -24,7 +24,7 @@ class PopupMenu extends Component {
     this.props.actions.popupClose(false)
   }
 
-  modalSwitch(type){
+  modalSwitch = (type) => {
     switch(type) {
         case "MODAL_FIND":
             return (
@@ -44,13 +44,14 @@ class PopupMenu extends Component {
               <PopupPath popup={this.props.popup} actions={this.props.actions}/>
             )
         default:
-            return <div>D</div>;
+            return <div>Default Popup</div>;
     }
   }
-  
+
   render = () => {
     return (
-      <div className="Modal">
+      <div>{this.modalSwitch(this.props.popup.openModal)}</div>
+      /* <div className="Modal">
         <Popup
           modal
           open
@@ -58,12 +59,12 @@ class PopupMenu extends Component {
         >
           {close => (
             <div className="modal">
-              {/* Small X in crner */}
+
               <a className="close" onClick={close}>
                 &times;
               </a>
 
-              {this.modalSwitch(this.props.popup.openModal)}
+
 
               <div className="actions">
                 <button
@@ -89,7 +90,7 @@ class PopupMenu extends Component {
             </div>
           )}
         </Popup>
-      </div>
+      </div> */
     )
   }
 

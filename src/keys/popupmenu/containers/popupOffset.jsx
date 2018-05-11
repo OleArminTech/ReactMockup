@@ -4,20 +4,20 @@ import PropTypes from 'prop-types'
 
 class PopupOffset extends Component {
 
-  confirmModal(event){
+  confirmModal = (event) => {
     console.log("MODAL_OFFSET Pressed: Accept;")
   }
 
-  cancelModal(event){
+  cancelModal = (event) => {
     console.log("MODAL_OFFSET Pressed: Close;")
   }
 
-  exitModal(event){
+  exitModal = (event) => {
     console.log("MODAL_OFFSET Exited;")
     this.props.actions.popupConfirm(false)
   }
 
-  render() {
+  render = () => {
     return (
       <div className="popupModalOffset">
         <Popup
